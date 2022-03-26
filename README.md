@@ -1,4 +1,4 @@
-# mirror.funami.tech source code
+# YuruMirror source code
 
 It is what it is. Licensed under GPLv3. [Except images (might be copyrighted so be careful) and JS scripts with other license]
 
