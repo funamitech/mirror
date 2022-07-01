@@ -12,7 +12,12 @@ function getMirrorType(foldername)
             return "EndeavourOS - YuruMirror";
         case "manjaro":
             return "Manjaro Linux - YuruMirror";
-
+        case "xerolinux":
+            return "XeroLinux - YuruMirror";
+        case "arch-mact2":
+            return "Arch Linux extras for Macs with T2 - YuruMirror";
+        case "manjaro-mact2":
+            return "Manjaro Linux extras for Macs with T2 - YuruMirror";
     }
 }
 
