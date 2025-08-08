@@ -209,11 +209,17 @@ function generateList() { // eslint-disable-line no-unused-vars
 
     /* Return the file icon HTML tag to be used for the file passed to this
      * function. */
-    return '<i class="fa fa-fw ' + getFontAwesomeClass(filetype) +
+    return '<i class="fas fa-fw ' + getFontAwesomeClass(filetype) +
            '" aria-hidden="true"></i>';
   }
 
   const list = document.getElementById('list');
+  
+  // Safety check to ensure the list table exists
+  if (!list) {
+    console.error('List table not found');
+    return;
+  }
 
   /* Remove the default style attributes and add modern table styling classes.
    * Text will not be wrapped by default, except for long filenames which
@@ -230,16 +236,22 @@ function generateList() { // eslint-disable-line no-unused-vars
    * navigation is covered by the breadcrumbs. */
   if (window.location.pathname !== '/') {
     // More careful parent directory removal - look for specific parent directory indicators
+    // Only remove if it's clearly a nginx-generated parent directory link
     for (let i = 1; i < list.rows.length; i++) {
       const row = list.rows[i];
       if (row.cells && row.cells.length > 0) {
         const cell = row.cells[0];
         const link = cell.querySelector('a');
-        if (link && (link.getAttribute('href') === '../' || 
-                     link.textContent.trim() === 'Parent Directory' || 
-                     link.textContent.trim() === '../')) {
-          list.deleteRow(i);
-          break;
+        if (link) {
+          const href = link.getAttribute('href');
+          const linkText = link.textContent.trim();
+          
+          // Only remove if it's exactly a parent directory link and not a regular directory
+          if (href === '../' && 
+              (linkText === 'Parent Directory' || linkText === '../' || linkText === '..')) {
+            list.deleteRow(i);
+            break;
+          }
         }
       }
     }
