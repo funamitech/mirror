@@ -1,31 +1,22 @@
-function getMirrorType(foldername)
-{
-    switch (foldername.toLowerCase())
-    {
-        case "arch":
-            return "Arch Linux - YuruMirror";
-        case "arcolinux":
-            return "ArcoLinux - YuruMirror";
-        case "artix":
-            return "Artix Linux - YuruMirror";
-        case "endeavouros":
-            return "EndeavourOS - YuruMirror";
-        case "manjaro":
-            return "Manjaro Linux - YuruMirror";
-        case "xerolinux":
-            return "XeroLinux - YuruMirror";
-        case "arch-mact2":
-            return "Arch Linux extras for Macs with T2 - YuruMirror";
-        case "manjaro-mact2":
-            return "Manjaro Linux extras for Macs with T2 - YuruMirror";
-    }
-}
-
 function dynamicTitle()
 {
-    var mirror = getMirrorType(document.location.pathname.split('/')[1]);
+    const distros = { 
+      "arch": "Arch Linux",
+      "arcolinux": "ArcoLinux",
+      "artix": "Artix Linux",
+      "blendos": "blendOS",
+      "cachy": "CachyOS",
+      "endeavouros": "EndeavourOS",
+      "fyralabs": "Fyra Labs Projects (Terra, Ultramarine)",
+      "manjaro": "Manjaro Linux",
+      "xerolinux": "XeroLinux",
+      "arch-mact2": "Arch Linux extras for Macs with T2",
+      "manjaro-mact2": "Manjaro Linux extras for Macs with T2",
+      "yurumc": "YuruMC Files",
+    };
+    var mirror = distros[document.location.pathname.split('/')[1]];
     if (mirror)
     {
-        document.title = mirror;
+        document.title = mirror + " - YuruMirror";
     }
 }
