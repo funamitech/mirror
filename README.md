@@ -1,7 +1,5 @@
-# YuruMirror source code
+# YuruMirror
 
-It is what it is. Licensed under GPLv3. [Except images (might be copyrighted so be careful) and JS scripts with other license]
+Mirror project with modern TailwindCSS design.
 
-`output/` contains output from Bootstrap Studio.
-
-Some sources are from [alehaa/nginx-fancyindex-flat-theme](https://github.com/alehaa/nginx-fancyindex-flat-theme)
+`output/` contains the website files with modern styling and directory listing functionality.
