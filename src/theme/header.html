@@ -170,14 +170,13 @@
         }
 
         .group .absolute a[href*="t2"]:hover {
-            background: rgba(255, 255, 255, 0.15) !important;
+            background: rgba(255, 255, 255, 0.20) !important;
             transform: translateX(4px) !important;
         }
 
-        .group .absolute a[href*="t2"]:hover .fa-apple {
-            color: #ffffff !important;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
-            transform: scale(1.1) !important;
+        /* Ensure dropdown icons retain accent color on hover */
+        .group .absolute a:hover i {
+            color: #7f6f79 !important; /* matches --color-accent-500 */
         }
 
         /* Apple icon default state for t2linux items */

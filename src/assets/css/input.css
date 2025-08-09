@@ -56,3 +56,29 @@
 @utility animate-glow {
   animation: glow 2s ease-in-out infinite alternate;
 } 
+
+@layer components {
+  /* Global dropdown pill-shaped hover highlights */
+  .group .absolute a {
+    border-radius: 9999px !important;
+    margin: 2px 8px !important;
+    padding: 8px 16px !important;
+  }
+
+  #mobile-menu a {
+    border-radius: 9999px !important;
+    margin: 2px 4px !important;
+  }
+
+  /* Lighter hover background for dropdown items */
+  .group .absolute a:hover,
+  #mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.20) !important;
+  }
+
+  /* Keep dropdown icons from turning white on hover */
+  .group .absolute a:hover i,
+  #mobile-menu a:hover i {
+    color: var(--color-accent-500) !important;
+  }
+} 
