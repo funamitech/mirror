@@ -4,9 +4,12 @@
   "description": "Mirror project with JavaScript file management",
   "scripts": {
     "lint": "eslint src/assets/js/*.js",
-    "lint:fix": "eslint src/assets/js/*.js --fix"
+    "lint:fix": "eslint src/assets/js/*.js --fix",
+    "build-css": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --watch",
+    "build-css-prod": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --minify"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
     "eslint": "^8.57.0"
   },
   "eslintConfig": {
@@ -20,11 +23,25 @@
       "vanillaZoom": "readonly"
     },
     "rules": {
-      "indent": ["error", 2],
-      "quotes": ["error", "single"],
-      "semi": ["error", "always"],
-      "no-unused-vars": ["warn", { "args": "none" }],
+      "indent": [
+        "error",
+        2
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-unused-vars": [
+        "warn",
+        {
+          "args": "none"
+        }
+      ],
       "no-console": "off"
     }
   }
-} 
+}
