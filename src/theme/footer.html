@@ -429,6 +429,8 @@
                         Array.from(headerRow.cells).forEach((cell, index) => {
                             if (index === 0) {
                                 cell.className = "w-4 px-1 py-1 text-center";
+                                // Hide the icon header cell since we'll merge icon into filename pill
+                                cell.style.display = 'none';
                             } else if (index === 1) {
                                 cell.className = "px-2 py-1 text-left text-sm font-semibold text-slate-600 uppercase tracking-wider filename";
                             } else {
@@ -441,9 +443,9 @@
                 // Style the table body
                 const tbody = list.tBodies[0];
                 if (tbody) {
-                    tbody.className = "divide-y divide-white/5";
+                    tbody.className = "divide-y divide-primary-300";
                     Array.from(tbody.rows).forEach((row, rowIndex) => {
-                        row.className = "hover:bg-white/5 transition-all duration-300 group";
+                        row.className = "transition-all duration-300 group";
                         row.style.animationDelay = `${rowIndex * 0.05}s`;
                         
                         Array.from(row.cells).forEach((cell, index) => {
@@ -452,7 +454,7 @@
                                 // Style the icon
                                 const icon = cell.querySelector('i');
                                 if (icon) {
-                                    icon.className += ' text-accent-500 group-hover:scale-110 transition-transform duration-300';
+                                    icon.className += ' text-accent-500 transition-transform duration-300';
                                 }
                             } else if (index === 1) {
                                 cell.className = "px-2 py-1 text-sm font-medium text-slate-700 filename group-hover:text-accent-600 transition-colors duration-300";
@@ -460,6 +462,36 @@
                                 cell.className = "px-2 py-1 text-sm text-slate-500 hidden md:table-cell";
                             }
                         });
+
+                        // Merge icon and filename into a single pill-shaped clickable area
+                        const iconCell = row.cells[0];
+                        const nameCell = row.cells[1];
+                        if (iconCell && nameCell) {
+                            const anchor = nameCell.querySelector('a');
+                            if (anchor && !anchor.classList.contains('file-pill')) {
+                                // Try to find an icon element from the icon cell or within the name cell
+                                let iconEl = iconCell.querySelector('i, img') || nameCell.querySelector('i, img');
+                                if (iconEl) {
+                                    // Move icon into the anchor as the first child
+                                    anchor.insertBefore(iconEl, anchor.firstChild);
+                                    // Spacing and sizing for icon
+                                    if (iconEl.tagName && iconEl.tagName.toLowerCase() === 'i') {
+                                        iconEl.classList.add('mr-2');
+                                        // Ensure no hover scale that could cause perceived shift
+                                        iconEl.classList.remove('group-hover:scale-110');
+                                    } else {
+                                        iconEl.style.marginRight = '0.5rem';
+                                        iconEl.style.width = iconEl.style.width || '16px';
+                                        iconEl.style.height = iconEl.style.height || '16px';
+                                    }
+                                }
+
+                                // Make the anchor a pill container
+                                anchor.classList.add('file-pill', 'inline-flex', 'items-center');
+                                // Hide the original icon cell
+                                iconCell.style.display = 'none';
+                            }
+                        }
                     });
                 }
             }
@@ -608,6 +640,58 @@
         /* Ensure active state overrides hover states */
         nav a.bg-accent-500.text-white {
             background: linear-gradient(135deg, #7f6f79, #8f7f8a) !important;
+        }
+        
+        /* Prevent hover translate on file pills (override header rule #list a:hover { transform: translateX(4px); }) */
+        #list .file-pill,
+        #list .file-pill:hover {
+            transform: none !important;
+        }
+
+        /* Pill highlight for filename + icon */
+        .file-pill {
+            padding: 6px 10px !important;
+            border-radius: 9999px !important;
+            background: transparent !important;
+            border: 0 !important;
+            overflow: hidden !important; /* keep effects clipped inside pill */
+            transition: background 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                        color 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                        border-color 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                        backdrop-filter 120ms cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+ 
+        /* Highlight only when directly hovering the pill */
+        .file-pill:hover {
+            background: rgba(127, 111, 121, 0.28) !important; /* accent-500 @ ~28% */
+            border: 0 !important; /* no visible outline */
+            box-shadow: none !important; /* no outer glow */
+            -webkit-backdrop-filter: blur(6px) !important;
+            backdrop-filter: blur(6px) !important; /* blur confined to pill */
+        }
+ 
+        .file-pill:hover i { color: #6b5b65 !important; } /* accent-600 */
+        .file-pill:focus-visible,
+        .file-pill:focus,
+        .file-pill:active {
+            outline: none !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            background: rgba(127, 111, 121, 0.28) !important;
+            -webkit-backdrop-filter: blur(6px) !important;
+            backdrop-filter: blur(6px) !important;
+        }
+
+        /* Ensure no outlines in any state */
+        .file-pill,
+        .file-pill:hover,
+        .file-pill:focus,
+        .file-pill:focus-visible,
+        .file-pill:active {
+            outline: none !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            -webkit-tap-highlight-color: transparent;
         }
     </style>
 </body>
