@@ -114,3 +114,13 @@ playwright-report/
 tmp/
 temp/
 *.tmp 
+
+# Test files
+src/test/
+src/arch/
+src/artix/
+src/cachy/
+src/endeavouros/
+src/fyralabs/
+src/manjaro/
+src/arch-mact2/

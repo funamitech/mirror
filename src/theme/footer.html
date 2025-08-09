@@ -170,7 +170,7 @@
                                 <a href="https://archlinux.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/archlinux.svg" alt="Arch Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Arch Linux</span>
                                 </a>
@@ -179,7 +179,7 @@
                                 <a href="https://artixlinux.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/artix.png" alt="Artix Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Artix Linux</span>
                                 </a>
@@ -188,7 +188,7 @@
                                 <a href="https://cachyos.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/cachyos.svg" alt="CachyOS" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">CachyOS</span>
                                 </a>
@@ -197,7 +197,7 @@
                                 <a href="https://endeavouros.com" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/endeavouros.png" alt="EndeavourOS" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">EndeavourOS</span>
                                 </a>
@@ -206,7 +206,7 @@
                                 <a href="https://fyralabs.com" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/fyralabs.svg" alt="Fyra Labs" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Fyra Labs</span>
                                 </a>
@@ -215,7 +215,7 @@
                                 <a href="https://manjaro.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/manjaro.svg" alt="Manjaro Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Manjaro Linux</span>
                                 </a>
@@ -313,17 +313,65 @@
             }
         });
 
-        // Enhanced scroll effects
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.backdropFilter = 'blur(20px)';
-                nav.style.background = 'rgba(255, 255, 255, 0.15)';
-            } else {
-                nav.style.backdropFilter = 'blur(10px)';
-                nav.style.background = 'rgba(255, 255, 255, 0.1)';
-            }
-        });
+        // Highlight current page in navigation
+        function highlightCurrentPage() {
+            const currentPath = window.location.pathname;
+            
+            // Desktop navigation links
+            const desktopNavLinks = document.querySelectorAll('nav .hidden.lg\\:flex a[href]');
+            // Mobile navigation links  
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a[href]');
+            
+            // Combine both desktop and mobile links
+            const allNavLinks = [...desktopNavLinks, ...mobileNavLinks];
+            
+            allNavLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                let isActive = false;
+                
+                // Check for exact matches or directory matches
+                if (href === currentPath || 
+                    (href !== '/' && currentPath.startsWith(href)) ||
+                    (href.endsWith('.html') && currentPath.endsWith(href))) {
+                    isActive = true;
+                }
+                
+                // Apply active styling
+                if (isActive) {
+                    // Remove default classes and add active classes
+                    link.classList.remove('text-slate-700', 'hover:text-accent-600', 'hover:bg-primary-200');
+                    link.classList.add('text-white', 'bg-accent-500', 'shadow-lg', 'font-semibold');
+                    
+                    // Add glow effect
+                    link.style.boxShadow = '0 0 20px rgba(127, 111, 121, 0.4)';
+                    link.style.background = 'linear-gradient(135deg, #7f6f79, #8f7f8a)';
+                    
+                    // Make icon white for active state
+                    const icon = link.querySelector('i');
+                    if (icon) {
+                        icon.style.color = '#ffffff !important';
+                        icon.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.5) !important';
+                        icon.style.setProperty('color', '#ffffff', 'important');
+                    }
+                } else {
+                    // Ensure default styling is applied
+                    link.classList.remove('text-white', 'bg-accent-500', 'shadow-lg', 'font-semibold');
+                    link.classList.add('text-slate-700', 'hover:text-accent-600', 'hover:bg-primary-200');
+                    link.style.boxShadow = '';
+                    link.style.background = '';
+                    
+                    // Reset icon to default color
+                    const icon = link.querySelector('i');
+                    if (icon) {
+                        icon.style.removeProperty('color');
+                        icon.style.removeProperty('text-shadow');
+                    }
+                }
+            });
+        }
+
+        // Call the function when page loads
+        document.addEventListener('DOMContentLoaded', highlightCurrentPage);
 
         // Smooth reveal animations for footer links
         const observerOptions = {
@@ -437,45 +485,6 @@
                 updateListStyling();
                 updateBreadcrumbStyling();
                 
-                // Clean up nginx fancyindex stray text
-                const container = document.querySelector('.glass .p-6');
-                if (container) {
-                    // Remove any stray text nodes that might be nginx path output
-                    const walker = document.createTreeWalker(
-                        container,
-                        NodeFilter.SHOW_TEXT,
-                        null,
-                        false
-                    );
-                    
-                    const textNodes = [];
-                    let node;
-                    while (node = walker.nextNode()) {
-                        textNodes.push(node);
-                    }
-                    
-                    textNodes.forEach(textNode => {
-                        const text = textNode.textContent.trim();
-                        // Remove nginx fancyindex path indicators like "/arch/", "/arch/extra/", etc.
-                        if (text.match(/^\/[^\/\s]*\/$/) || 
-                            text.match(/^\/[^\/\s]*\/[^\/\s]*\/$/) ||
-                            text.match(/^\/[^\/\s]*\/[^\/\s]*\/[^\/\s]*\/$/) ||
-                            text === '' || 
-                            text.startsWith('/') && text.endsWith('/')) {
-                            textNode.remove();
-                        }
-                    });
-                    
-                    // Also remove any h1 elements that might contain path info
-                    const pathHeaders = container.querySelectorAll('h1');
-                    pathHeaders.forEach(header => {
-                        const headerText = header.textContent.trim();
-                        if (headerText.startsWith('/') && headerText.endsWith('/')) {
-                            header.remove();
-                        }
-                    });
-                }
-                
                 // Add entrance animations
                 const mainContent = document.querySelector('main > div');
                 if (mainContent) {
@@ -540,16 +549,6 @@
             padding: 4px 8px !important;
         }
         
-        /* Hide the nginx fancyindex path text that appears before the table */
-        #list::before {
-            display: none;
-        }
-        
-        /* Hide any text nodes that appear before the table */
-        .glass > .p-6 > h1:not(:first-child) {
-            display: none;
-        }
-        
         /* Modern breadcrumb separator */
         .breadcrumb-item:not(:first-child)::before {
             content: "→";
@@ -583,6 +582,32 @@
             background: rgba(0, 0, 0, 0.1) !important;
             backdrop-filter: blur(15px) !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Active navigation link styling */
+        nav a.bg-accent-500 {
+            background: linear-gradient(135deg, #7f6f79, #8f7f8a) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(127, 111, 121, 0.4) !important;
+            font-weight: 600 !important;
+            transform: translateY(-1px);
+        }
+
+        nav a.bg-accent-500:hover {
+            background: linear-gradient(135deg, #6b5b65, #7f6f79) !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(127, 111, 121, 0.5) !important;
+        }
+
+        /* Enhanced transition for all nav links */
+        nav a {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        /* Ensure active state overrides hover states */
+        nav a.bg-accent-500.text-white {
+            background: linear-gradient(135deg, #7f6f79, #8f7f8a) !important;
         }
     </style>
 </body>

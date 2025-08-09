@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.2"
+   width="10cm"
+   height="10cm"
+   id="svg2"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="sticker_manjaro_rounded_transparent.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     pagecolor="#585858"
+     bordercolor="#424242"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="955"
+     inkscape:window-height="1047"
+     id="namedview15"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.0864836"
+     inkscape:cx="173.03528"
+     inkscape:cy="134.37846"
+     inkscape:window-x="2881"
+     inkscape:window-y="3"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text594"
+     inkscape:pagecheckerboard="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:deskcolor="#585858"
+     inkscape:document-units="cm">
+    <inkscape:grid
+       type="xygrid"
+       id="grid837"
+       originx="18.181768"
+       originy="18.416125" />
+  </sodipodi:namedview>
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     aria-label="®"
+     id="text594"
+     style="font-size:140.705px;line-height:1.25;letter-spacing:0px;word-spacing:0px;fill:#4f4f4f;stroke-width:3.51762"
+     transform="matrix(0.31550702,0,0,0.31550702,-86.515514,230.48643)"
+     inkscape:label="Manjaro Logo vertical">
+    <path
+       id="rect1340-7"
+       style="fill:#35bfa4;fill-rule:evenodd;stroke-width:46.074;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+       d="m 458.50643,-637.19183 c -51.04978,0 -92.14777,41.09788 -92.14777,92.14796 v 829.3307 c 0,51.05002 41.09799,92.14791 92.14777,92.14791 h 184.29602 v -737.18315 h 368.59115 v -276.44342 z m 645.03517,0 V 376.43474 h 184.2959 c 51.0496,0 92.1475,-41.09789 92.1475,-92.14791 v -829.3307 c 0,-51.05008 -41.0979,-92.14796 -92.1475,-92.14796 z m -368.59139,368.59134 v 645.03523 h 276.44339 v -645.03523 z"
+       inkscape:label="M" />
+  </g>
+</svg>

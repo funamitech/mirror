@@ -32,9 +32,9 @@
                             900: '#5a4d56',
                         },
                         accent: {
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
+                            400: '#8f7f8a',
+                            500: '#7f6f79',
+                            600: '#6b5b65',
                         }
                     },
                     fontFamily: {
@@ -99,114 +99,123 @@
 <body class="min-h-screen bg-slate-50 font-inter">
 
     <!-- Modern Navigation -->
-    <nav class="fixed w-full top-0 z-50 glass backdrop-blur-md">
-        <div class="absolute inset-0 bg-white/20"></div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo with modern styling -->
-                <div class="flex items-center group">
-                    <a href="/" class="flex items-center space-x-3 text-slate-800 hover:text-accent-600 transition-all duration-300">
-                        <div class="relative">
-                            <img src="/assets/img/yuifunami-300px.png" alt="YuruMirror" 
-                                 class="h-10 w-10 object-contain rounded-xl shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
-                        </div>
-                        <span class="text-xl font-bold text-slate-800">
-                            YuruMirror
-                        </span>
-                    </a>
-                </div>
+    <nav class="fixed w-full top-0 z-50 px-4 sm:px-6 lg:px-8 pt-4">
+        <div class="max-w-7xl mx-auto glass backdrop-blur-md rounded-full shadow-2xl border border-white/30">
+            <div class="absolute inset-0 bg-white/20 rounded-full"></div>
+            <div class="relative px-6 py-3">
+                <div class="flex justify-between items-center">
+                    <!-- Logo with modern styling -->
+                    <div class="flex items-center group">
+                        <a href="/" class="flex items-center space-x-3 text-slate-800 hover:text-accent-600 transition-all duration-300">
+                            <div class="relative">
+                                <img src="/assets/img/yuifunami-300px.png" alt="YuruMirror" 
+                                     class="h-8 w-8 object-contain rounded-full shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                            </div>
+                            <span class="text-lg font-bold text-slate-800">
+                                YuruMirror
+                            </span>
+                        </a>
+                    </div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-2">
-                    <a href="/donate.html" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        Donate
-                    </a>
-                    <a href="/arch/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        Arch
-                    </a>
-                    <a href="/artix/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        Artix
-                    </a>
-                    <a href="/cachy/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        CachyOS
-                    </a>
-                    <a href="/endeavouros/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        EndeavourOS
-                    </a>
-                    <a href="/fyralabs/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        Fyra Labs
-                    </a>
-                    <a href="/manjaro/" 
-                       class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300">
-                        Manjaro
-                    </a>
-                    
-                    <!-- Modern dropdown -->
-                    <div class="relative group">
-                        <button class="px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:text-accent-600 hover:bg-white/30 transition-all duration-300 flex items-center space-x-1">
-                            <span>More</span>
-                            <i class="fas fa-chevron-down text-xs transform group-hover:rotate-180 transition-transform duration-300"></i>
-                        </button>
-                        <div class="absolute right-0 mt-2 w-72 glass-dark rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform scale-95 group-hover:scale-100 transition-all duration-300">
-                            <div class="py-2">
-                                <a href="/arch-mact2/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300 first:rounded-t-2xl">
-                                    <i class="fab fa-apple mr-3 text-accent-500"></i>Arch Linux packages for t2linux
-                                </a>
-                                <a href="/endeavouros-t2/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                                    <i class="fab fa-linux mr-3 text-accent-500"></i>EndeavourOS ISOs for t2linux
-                                </a>
-                                <a href="/yurumc/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                                    <i class="fas fa-cube mr-3 text-accent-500"></i>YuruMC
-                                </a>
-                                <div class="border-t border-white/10 my-1"></div>
-                                <a href="https://funami.tech" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300 last:rounded-b-2xl">
-                                    <i class="fas fa-external-link-alt mr-3 text-accent-500"></i>Back to YuruVerse
-                                </a>
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center space-x-1">
+                        <a href="/donate.html" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <i class="fas fa-heart mr-1.5 text-accent-500 text-xs"></i>
+                            <span class="hidden xl:block">Donate</span>
+                        </a>
+                        <a href="/arch/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/archlinux.svg" alt="Arch Linux" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">Arch</span>
+                        </a>
+                        <a href="/artix/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/artix.png" alt="Artix Linux" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">Artix</span>
+                        </a>
+                        <a href="/cachy/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/cachyos.svg" alt="CachyOS" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">CachyOS</span>
+                        </a>
+                        <a href="/endeavouros/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/endeavouros.png" alt="EndeavourOS" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">EndeavourOS</span>
+                        </a>
+                        <a href="/fyralabs/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/fyralabs.svg" alt="Fyra Labs" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">Fyra Labs</span>
+                        </a>
+                        <a href="/manjaro/" 
+                           class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center">
+                            <img src="/assets/img/manjaro.svg" alt="Manjaro" class="w-3.5 h-3.5 mr-1.5 object-contain">
+                            <span class="hidden xl:block">Manjaro</span>
+                        </a>
+                        
+                        <!-- Modern dropdown -->
+                        <div class="relative group">
+                            <button class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-700 hover:text-accent-600 hover:bg-primary-200 transition-all duration-300 flex items-center space-x-1">
+                                <span class="hidden xl:block">More</span>
+                                <i class="fas fa-chevron-down text-xs transform group-hover:rotate-180 transition-transform duration-300"></i>
+                            </button>
+                            <div class="absolute right-0 mt-2 w-72 glass-dark rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transform scale-95 group-hover:scale-100 transition-all duration-300">
+                                <div class="py-2">
+                                    <a href="/arch-mact2/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300 first:rounded-t-2xl">
+                                        <i class="fab fa-apple mr-3 text-accent-500"></i>Arch Linux packages for t2linux
+                                    </a>
+                                    <a href="/endeavouros-t2/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
+                                        <i class="fab fa-apple mr-3 text-accent-500"></i>EndeavourOS ISOs for t2linux
+                                    </a>
+                                    <a href="/yurumc/" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
+                                        <i class="fas fa-cube mr-3 text-accent-500"></i>YuruMC
+                                    </a>
+                                    <div class="border-t border-white/10 my-1"></div>
+                                    <a href="https://funami.tech" class="block px-4 py-3 text-sm text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300 last:rounded-b-2xl">
+                                        <i class="fas fa-external-link-alt mr-3 text-accent-500"></i>Back to YuruVerse
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" 
-                            class="p-2 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/30 focus:outline-none transition-all duration-300">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
+                    <!-- Mobile menu button -->
+                    <div class="lg:hidden">
+                        <button id="mobile-menu-btn" 
+                                class="p-2 rounded-full text-slate-700 hover:text-accent-600 hover:bg-primary-200 focus:outline-none transition-all duration-300">
+                            <i class="fas fa-bars text-lg"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="glass-dark m-4 rounded-2xl overflow-hidden">
+        <div id="mobile-menu" class="lg:hidden hidden mt-4">
+            <div class="glass-dark rounded-2xl overflow-hidden shadow-2xl border border-white/20">
                 <div class="space-y-1 p-4">
-                    <a href="/donate.html" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
+                    <a href="/donate.html" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 duration-300">
                         <i class="fas fa-heart mr-3 text-accent-500"></i>Donate
                     </a>
                     <a href="/arch/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>Arch
+                        <img src="/assets/img/archlinux.svg" alt="Arch Linux" class="inline w-4 h-4 mr-3 object-contain">Arch
                     </a>
                     <a href="/artix/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>Artix
+                        <img src="/assets/img/artix.png" alt="Artix Linux" class="inline w-4 h-4 mr-3 object-contain">Artix
                     </a>
                     <a href="/cachy/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>CachyOS
+                        <img src="/assets/img/cachyos.svg" alt="CachyOS" class="inline w-4 h-4 mr-3 object-contain">CachyOS
                     </a>
                     <a href="/endeavouros/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>EndeavourOS
+                        <img src="/assets/img/endeavouros.png" alt="EndeavourOS" class="inline w-4 h-4 mr-3 object-contain">EndeavourOS
                     </a>
                     <a href="/fyralabs/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>Fyra Labs
+                        <img src="/assets/img/fyralabs.svg" alt="Fyra Labs" class="inline w-4 h-4 mr-3 object-contain">Fyra Labs
                     </a>
                     <a href="/manjaro/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>Manjaro
+                        <img src="/assets/img/manjaro.svg" alt="Manjaro" class="inline w-4 h-4 mr-3 object-contain">Manjaro
                     </a>
                     
                     <div class="border-t border-white/10 my-2"></div>
@@ -214,7 +223,7 @@
                         <i class="fab fa-apple mr-3 text-accent-500"></i>Arch Linux packages for t2linux
                     </a>
                     <a href="/endeavouros-t2/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
-                        <i class="fab fa-linux mr-3 text-accent-500"></i>EndeavourOS ISOs for t2linux
+                        <i class="fab fa-apple mr-3 text-accent-500"></i>EndeavourOS ISOs for t2linux
                     </a>
                     <a href="/yurumc/" class="block px-4 py-3 rounded-xl text-slate-700 hover:text-accent-600 hover:bg-white/10 transition-all duration-300">
                         <i class="fas fa-cube mr-3 text-accent-500"></i>YuruMC
@@ -226,7 +235,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Main Content -->
     <main class="relative">
         <!-- Hero Section with Glassmorphic Design -->
@@ -234,8 +242,7 @@
             <!-- Background Image with Blur -->
             <div class="absolute inset-0">
                 <img src="/assets/img/IMG_0010.webp" alt="Background" 
-                     class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+                     class="w-full h-full object-cover filter blur-sm">
             </div>
             
             <!-- Content -->
@@ -255,7 +262,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#features" class="group inline-flex items-center px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-slate-800 font-semibold rounded-2xl transition-all duration-300 hover:scale-105">
+                    <a href="#features" class="group inline-flex items-center px-8 py-4 glass text-slate-800 font-semibold rounded-2xl transition-all duration-300 hover:scale-105">
                         <i class="fas fa-rocket mr-3"></i>
                         Explore Features
                     </a>
@@ -263,26 +270,6 @@
                         <i class="fab fa-linux mr-3"></i>
                         Browse Files
                     </a>
-                </div>
-                
-                <!-- Stats with Glassmorphic Effect -->
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
-                        <div class="text-3xl font-bold text-orange-600">4Gbps</div>
-                        <div class="text-sm text-slate-700 font-medium">Network Speed</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
-                        <div class="text-3xl font-bold text-emerald-600">6+</div>
-                        <div class="text-sm text-slate-700 font-medium">Linux Distros</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
-                        <div class="text-3xl font-bold text-cyan-600">24/7</div>
-                        <div class="text-sm text-slate-700 font-medium">Uptime</div>
-                    </div>
-                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300 shadow-lg">
-                        <div class="text-3xl font-bold text-pink-600">Seoul</div>
-                        <div class="text-sm text-slate-700 font-medium">Server Location</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -535,7 +522,7 @@
                                 <a href="https://archlinux.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/archlinux.svg" alt="Arch Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Arch Linux</span>
                                 </a>
@@ -544,7 +531,7 @@
                                 <a href="https://artixlinux.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-pink-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/artix.png" alt="Artix Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Artix Linux</span>
                                 </a>
@@ -553,7 +540,7 @@
                                 <a href="https://cachyos.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/cachyos.svg" alt="CachyOS" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">CachyOS</span>
                                 </a>
@@ -562,7 +549,7 @@
                                 <a href="https://endeavouros.com" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-orange-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/endeavouros.png" alt="EndeavourOS" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">EndeavourOS</span>
                                 </a>
@@ -571,7 +558,7 @@
                                 <a href="https://fyralabs.com" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/fyralabs.svg" alt="Fyra Labs" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Fyra Labs</span>
                                 </a>
@@ -580,7 +567,7 @@
                                 <a href="https://manjaro.org" 
                                    class="flex items-center text-slate-300 hover:text-white transition-all duration-300 group/link p-3 rounded-xl hover:bg-white/5">
                                     <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center mr-3 group-hover/link:scale-110 transition-transform duration-300">
-                                        <i class="fab fa-linux text-white text-sm"></i>
+                                        <img src="/assets/img/manjaro.svg" alt="Manjaro Linux" class="max-w-6 max-h-6 object-contain">
                                     </div>
                                     <span class="font-medium">Manjaro Linux</span>
                                 </a>
@@ -661,7 +648,7 @@
 
     <!-- Enhanced JavaScript -->
     <script>
-        // Modern mobile menu toggle with animation
+        // Enhanced mobile menu toggle with animation
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             const icon = this.querySelector('i');
@@ -675,18 +662,6 @@
             } else {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-            }
-        });
-
-        // Enhanced scroll effects
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.backdropFilter = 'blur(20px)';
-                nav.style.background = 'rgba(255, 255, 255, 0.15)';
-            } else {
-                nav.style.backdropFilter = 'blur(10px)';
-                nav.style.background = 'rgba(255, 255, 255, 0.1)';
             }
         });
 
