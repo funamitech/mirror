@@ -107,7 +107,6 @@ function generateList() { // eslint-disable-line no-unused-vars
     case 'cab':
     case 'dmg':
     case 'gz':
-    case 'iso':
     case 'jar':
     case 'lz':
     case 'lzma':
@@ -125,6 +124,9 @@ function generateList() { // eslint-disable-line no-unused-vars
     case 'zip':
     case 'zst':
       return 'archive';
+
+    case 'iso':
+      return 'iso';
 
     case 'doc':
     case 'docx':
@@ -190,6 +192,8 @@ function generateList() { // eslint-disable-line no-unused-vars
         return 'fa-file-excel';
       case 'image':
         return 'fa-file-image';
+      case 'iso':
+        return 'fa-compact-disc';
       case 'pdf':
         return 'fa-file-pdf';
       case 'powerpoint':
@@ -209,7 +213,7 @@ function generateList() { // eslint-disable-line no-unused-vars
 
     /* Return the file icon HTML tag to be used for the file passed to this
      * function. */
-    return '<i class="fas fa-fw ' + getFontAwesomeClass(filetype) +
+    return '<i class="fas fa-solid ' + getFontAwesomeClass(filetype) +
            '" aria-hidden="true"></i>';
   }
 
