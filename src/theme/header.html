@@ -254,6 +254,33 @@
         #mobile-menu a[href*="t2"]:hover .fa-apple {
             transform: scale(1.1) !important;
         }
+
+        /* Horizontally scrollable breadcrumbs */
+        #breadcrumbs {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge legacy */
+        }
+
+        /* Hide scrollbar for WebKit browsers */
+        #breadcrumbs::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        #breadcrumbs > li {
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+
+        #breadcrumbs a {
+            white-space: nowrap;
+        }
     </style>
 </head>
 

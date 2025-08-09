@@ -22,10 +22,19 @@
       }
     }
     
+    // Scroll breadcrumbs to show the current directory (end)
+    function scrollBreadcrumbsToEnd() {
+      var el = document.getElementById('breadcrumbs');
+      if (el) {
+        el.scrollLeft = el.scrollWidth;
+      }
+    }
+    
     generateBreadcrumbs();
     generateList();
     updateDirectoryTitle();
     dynamicTitle();
+    scrollBreadcrumbsToEnd();
   </script>
 <style>
 
@@ -297,19 +306,88 @@
     <!-- Enhanced JavaScript -->
     <script>
         // Modern mobile menu toggle with animation
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            const icon = this.querySelector('i');
-            
-            mobileMenu.classList.toggle('hidden');
-            
-            // Animate hamburger icon
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            const btn = this;
+            const icon = btn.querySelector('i');
+            if (!mobileMenu || mobileMenu.dataset.animating === 'true') return;
+
+            const isHidden = mobileMenu.classList.contains('hidden');
+            mobileMenu.dataset.animating = 'true';
+
+            if (isHidden) {
+                btn.classList.add('scale-95');
+                btn.classList.add('rotate-180');
+                requestAnimationFrame(() => btn.classList.remove('scale-95'));
+
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.style.overflow = 'hidden';
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenu.style.opacity = '0';
+                mobileMenu.style.transform = 'translateY(-8px)';
+                mobileMenu.style.transition = 'max-height 300ms ease, opacity 200ms ease, transform 300ms ease';
+
+                requestAnimationFrame(() => {
+                    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                    mobileMenu.style.opacity = '1';
+                    mobileMenu.style.transform = 'translateY(0)';
+                });
+
+                const cleanupOpen = () => {
+                    mobileMenu.style.maxHeight = '';
+                    mobileMenu.style.overflow = '';
+                    mobileMenu.style.transition = '';
+                    mobileMenu.style.opacity = '';
+                    mobileMenu.style.transform = '';
+                    mobileMenu.removeEventListener('transitionend', onOpenEnd);
+                    delete mobileMenu.dataset.animating;
+                };
+                const onOpenEnd = (e) => {
+                    if (e.propertyName === 'max-height') cleanupOpen();
+                };
+                mobileMenu.addEventListener('transitionend', onOpenEnd);
+                setTimeout(cleanupOpen, 400);
+
+                if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+                btn.setAttribute('aria-expanded', 'true');
             } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+                btn.classList.remove('rotate-180');
+                btn.classList.add('scale-95');
+                setTimeout(() => btn.classList.remove('scale-95'), 180);
+
+                mobileMenu.style.overflow = 'hidden';
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+                mobileMenu.style.opacity = '1';
+                mobileMenu.style.transform = 'translateY(0)';
+                mobileMenu.style.transition = 'max-height 300ms ease, opacity 200ms ease, transform 300ms ease';
+
+                mobileMenu.getBoundingClientRect();
+
+                requestAnimationFrame(() => {
+                    mobileMenu.style.maxHeight = '0px';
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-8px)';
+                });
+
+                const cleanupClose = () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.maxHeight = '';
+                    mobileMenu.style.overflow = '';
+                    mobileMenu.style.transition = '';
+                    mobileMenu.style.opacity = '';
+                    mobileMenu.style.transform = '';
+                    mobileMenu.removeEventListener('transitionend', onCloseEnd);
+                    delete mobileMenu.dataset.animating;
+                };
+                const onCloseEnd = (e) => {
+                    if (e.propertyName === 'max-height') cleanupClose();
+                };
+                mobileMenu.addEventListener('transitionend', onCloseEnd);
+                setTimeout(cleanupClose, 400);
+
+                if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+                btn.setAttribute('aria-expanded', 'false');
+                btn.classList.remove('bg-primary-200');
             }
         });
 
@@ -408,6 +486,7 @@
         generateBreadcrumbs();
         generateList();
         dynamicTitle();
+        scrollBreadcrumbsToEnd();
 
         // Enhanced list styling for modern design
         function updateListStyling() {
