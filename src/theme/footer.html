@@ -453,15 +453,17 @@
 
         // Smooth reveal animations for footer links
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px 120px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    const el = entry.target;
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                    observer.unobserve(el);
                 }
             });
         }, observerOptions);
@@ -469,10 +471,11 @@
         // Observe footer elements
         document.addEventListener('DOMContentLoaded', function() {
             const footerGroups = document.querySelectorAll('footer .group');
-            footerGroups.forEach((group, index) => {
+            footerGroups.forEach((group) => {
                 group.style.opacity = '0';
-                group.style.transform = 'translateY(20px)';
-                group.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                group.style.transform = 'translateY(10px)';
+                group.style.willChange = 'opacity, transform';
+                group.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
                 observer.observe(group);
             });
         });
@@ -525,7 +528,6 @@
                     tbody.className = "divide-y divide-primary-300";
                     Array.from(tbody.rows).forEach((row, rowIndex) => {
                         row.className = "transition-all duration-300 group";
-                        row.style.animationDelay = `${rowIndex * 0.05}s`;
                         
                         Array.from(row.cells).forEach((cell, index) => {
                             if (index === 0) {
@@ -596,18 +598,7 @@
                 updateListStyling();
                 updateBreadcrumbStyling();
                 
-                // Add entrance animations
-                const mainContent = document.querySelector('main > div');
-                if (mainContent) {
-                    mainContent.style.opacity = '0';
-                    mainContent.style.transform = 'translateY(20px)';
-                    mainContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    
-                    setTimeout(() => {
-                        mainContent.style.opacity = '1';
-                        mainContent.style.transform = 'translateY(0)';
-                    }, 100);
-                }
+                // Removed entrance animations for main content to prevent load-time animation
             }, 100);
         });
     </script>
@@ -669,17 +660,11 @@
         }
 
         /* Staggered animation for table rows */
+        /* Removed row animations to prevent pop-in */
         #list tbody tr {
-            animation: slideInUp 0.6s ease forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes slideInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            opacity: 1;
+            transform: none;
+            animation: none;
         }
 
         /* Enhanced glass effects */
