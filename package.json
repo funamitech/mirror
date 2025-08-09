@@ -1,15 +1,16 @@
 {
-  "name": "mirror-project",
+  "name": "yurumirror",
   "version": "1.0.0",
-  "description": "Mirror project with JavaScript file management",
+  "description": "YuruMirror build script",
   "scripts": {
     "lint": "eslint src/assets/js/*.js",
     "lint:fix": "eslint src/assets/js/*.js --fix",
-    "build-css": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --watch",
-    "build-css-prod": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --minify"
+    "build-css": "npx -y @tailwindcss/cli -i src/assets/css/input.css -o src/assets/css/tailwind.css --watch",
+    "build-css-prod": "npx -y @tailwindcss/cli -i src/assets/css/input.css -o src/assets/css/tailwind.css --minify"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0",
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0",
     "eslint": "^8.57.0"
   },
   "eslintConfig": {

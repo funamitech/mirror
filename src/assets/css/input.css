@@ -1,3 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities; 
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-inter: "Inter", "sans-serif";
+  --font-display: "Cal Sans", "Inter", "sans-serif";
+
+  /* Colors: primary scale */
+  --color-primary-50: #faf9fa;
+  --color-primary-100: #f4f2f4;
+  --color-primary-200: #e9e5e8;
+  --color-primary-300: #d8d0d6;
+  --color-primary-400: #c1b3bc;
+  --color-primary-500: #a89aa5;
+  --color-primary-600: #8f7f8a;
+  --color-primary-700: #7f6f79;
+  --color-primary-800: #6b5b65;
+  --color-primary-900: #5a4d56;
+
+  /* Colors: accent */
+  --color-accent-400: #8f7f8a;
+  --color-accent-500: #7f6f79;
+  --color-accent-600: #6b5b65;
+}
+
+/* Custom animations */
+@keyframes gradient {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px #6366f1; }
+  to { box-shadow: 0 0 30px #8b5cf6, 0 0 40px #8b5cf6; }
+}
+
+@utility animate-gradient {
+  animation: gradient 8s linear infinite;
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+} 
