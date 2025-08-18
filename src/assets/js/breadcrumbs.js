@@ -13,39 +13,41 @@
  */
 function generateBreadcrumbs() { // eslint-disable-line no-unused-vars
   const pathSegments = window.location.pathname.replace(/\/$/, '').split('/');
+  const displaySegments = pathSegments.slice();
   let breadcrumbHtml = '';
   let currentPath = '';
 
+  // Map only the display name, do not alter actual path segments
   switch (pathSegments[1]) {
     case 'arch':
-      pathSegments[1] = 'Arch Linux';
+      displaySegments[1] = 'Arch Linux';
       break;
     case 'artix':
-      pathSegments[1] = 'Artix Linux';
+      displaySegments[1] = 'Artix Linux';
       break;
     case 'blendos':
-      pathSegments[1] = 'blendOS';
+      displaySegments[1] = 'blendOS';
       break;
     case 'cachy':
-      pathSegments[1] = 'CachyOS';
+      displaySegments[1] = 'CachyOS';
       break;
     case 'endeavouros':
-      pathSegments[1] = 'EndeavourOS';
+      displaySegments[1] = 'EndeavourOS';
       break;
     case 'endeavouros-t2':
-      pathSegments[1] = 'EndeavourOS ISOs for Macs with T2';
+      displaySegments[1] = 'EndeavourOS ISOs for Macs with T2';
       break;
     case 'fyralabs':
-      pathSegments[1] = 'Fyra Labs Projects (Terra, Ultramarine)';
+      displaySegments[1] = 'Fyra Labs Projects (Terra, Ultramarine)';
       break;
     case 'manjaro':
-      pathSegments[1] = 'Manjaro Linux';
+      displaySegments[1] = 'Manjaro Linux';
       break;
     case 'arch-mact2':
-      pathSegments[1] = 'Arch Linux extras for Macs with T2';
+      displaySegments[1] = 'Arch Linux extras for Macs with T2';
       break;
     case 'yurumc':
-      pathSegments[1] = 'YuruMC Files';
+      displaySegments[1] = 'YuruMC Files';
       break;
   }
 
@@ -53,7 +55,7 @@ function generateBreadcrumbs() { // eslint-disable-line no-unused-vars
     currentPath += pathSegments[i] + '/';
     
     const isLast = i === pathSegments.length - 1;
-    const displayName = i === 0 ? 'Home' : decodeURIComponent(pathSegments[i]);
+    const displayName = i === 0 ? 'Home' : decodeURIComponent(displaySegments[i]);
     
     breadcrumbHtml += '<li class="breadcrumb-item' + 
       (isLast ? ' active" aria-current="page"' : '"') + '>';
