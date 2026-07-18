@@ -1,30 +1,4 @@
-<!-- GENERATED from templates/theme/header.html — edit there, then run `npm run build` -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Browsing — YuruMirror</title>
-<meta name="description" content="Browse the YuruMirror file tree — fast Arch-based distro mirrors served from Seoul, South Korea.">
-<meta property="og:title" content="Browsing — YuruMirror">
-<meta property="og:description" content="Browse the YuruMirror file tree — fast Arch-based distro mirrors served from Seoul, South Korea.">
-<meta property="og:image" content="https://mirror.funami.tech/assets/img/IMG_0010.webp">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f9">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17131a">
-<link rel="icon" type="image/png" sizes="300x298" href="/assets/img/yuifunami-300px.png">
-<link rel="apple-touch-icon" href="/assets/img/yuifunami-300px.png">
-<link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/tailwind.css">
-<script>try { if (!document.documentElement.dataset.theme) { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } } catch (e) { /* no-op */ }</script>
-<script src="/assets/js/site.js" defer></script>
-    <script src="/assets/js/listing.js" defer></script>
-</head>
-
-<body>
-    <header class="sticky top-0 z-40 border-b border-line/70 bg-canvas/85 backdrop-blur-md">
+<header class="sticky top-0 z-40 border-b border-line/70 bg-canvas/85 backdrop-blur-md">
     <nav class="mx-auto flex h-14 max-w-6xl items-center gap-1 px-4 sm:px-6" aria-label="Main">
         <a href="/" class="-mx-1.5 me-auto flex items-center gap-2.5 rounded-lg px-1.5 py-1 transition-colors hover:bg-inset">
             <img src="/assets/img/yuifunami-300px.png" alt="" width="28" height="28" class="size-7 rounded-full">
@@ -86,17 +60,3 @@
         </nav>
     </div>
 </header>
-
-    <main class="mx-auto w-full max-w-5xl grow px-4 py-8 sm:px-6">
-        <nav aria-label="Breadcrumb">
-            <ol id="breadcrumbs" class="breadcrumbs"></ol>
-        </nav>
-
-        <section class="card mt-4 overflow-hidden" aria-label="Directory listing">
-            <header class="flex items-center gap-3 border-b border-line bg-inset/40 px-5 py-3.5">
-                <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-folder-open"/></svg>
-                <h1 id="directory-title" class="truncate text-[15px] font-semibold text-ink">Index</h1>
-                <span id="entry-count" class="ms-auto flex-none text-xs text-faint tabular-nums"></span>
-            </header>
-            <div class="overflow-x-auto">
-<!-- nginx fancyindex inserts <table id="list"> below this line -->

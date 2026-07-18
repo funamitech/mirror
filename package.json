@@ -1,12 +1,15 @@
 {
   "name": "yurumirror",
-  "version": "1.0.0",
-  "description": "YuruMirror build script",
+  "version": "3.0.0",
+  "description": "YuruMirror website and fancyindex theme",
+  "type": "module",
   "scripts": {
-    "lint": "eslint src/assets/js/*.js",
-    "lint:fix": "eslint src/assets/js/*.js --fix",
-    "build-css": "npx -y @tailwindcss/cli -i src/assets/css/input.css -o src/assets/css/tailwind.css --watch",
-    "build-css-prod": "npx -y @tailwindcss/cli -i src/assets/css/input.css -o src/assets/css/tailwind.css --minify"
+    "dev": "node dev/server.js",
+    "build": "node build.js && npm run build-css-prod",
+    "lint": "eslint src/assets/js/*.js build.js dev/server.js",
+    "lint:fix": "npm run lint -- --fix",
+    "build-css": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --watch",
+    "build-css-prod": "tailwindcss -i src/assets/css/input.css -o src/assets/css/tailwind.css --minify"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.0",
@@ -16,13 +19,21 @@
   "eslintConfig": {
     "env": {
       "browser": true,
-      "es6": true
+      "es2022": true
     },
     "extends": "eslint:recommended",
-    "globals": {
-      "baguetteBox": "readonly",
-      "vanillaZoom": "readonly"
-    },
+    "overrides": [
+      {
+        "files": ["build.js", "dev/**/*.js"],
+        "env": {
+          "node": true,
+          "browser": false
+        },
+        "parserOptions": {
+          "sourceType": "module"
+        }
+      }
+    ],
     "rules": {
       "indent": [
         "error",

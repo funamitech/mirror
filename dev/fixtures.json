@@ -1,0 +1,68 @@
+{
+  "arch": {
+    "core": {
+      "os": {
+        "x86_64": [
+          ["core.db", 180224, "2026-07-18 09:12"],
+          ["core.db.sig", 566, "2026-07-18 09:12"],
+          ["core.files", 442368, "2026-07-18 09:12"],
+          ["linux-6.15.6.arch1-1-x86_64.pkg.tar.zst", 148897792, "2026-07-17 21:40"],
+          ["linux-6.15.6.arch1-1-x86_64.pkg.tar.zst.sig", 566, "2026-07-17 21:40"],
+          ["linux-firmware-20260710-1-any.pkg.tar.zst", 351272960, "2026-07-11 03:22"],
+          ["pacman-7.0.0-3-x86_64.pkg.tar.zst", 1048576, "2026-06-30 14:05"],
+          ["systemd-257.7-1-x86_64.pkg.tar.zst", 12582912, "2026-07-15 18:44"]
+        ]
+      }
+    },
+    "extra": { "os": { "x86_64": [
+      ["extra.db", 9437184, "2026-07-18 09:12"],
+      ["firefox-141.0-1-x86_64.pkg.tar.zst", 73400320, "2026-07-16 12:00"],
+      ["a-very-long-package-name-with-many-dashes-and-numbers-1.2.3.r456.gabcdef0-2-x86_64.pkg.tar.zst", 4194304, "2026-07-14 08:30"]
+    ] } },
+    "iso": {
+      "2026.07.01": [
+        ["archlinux-2026.07.01-x86_64.iso", 1288490188, "2026-07-01 10:00"],
+        ["archlinux-2026.07.01-x86_64.iso.sig", 566, "2026-07-01 10:00"],
+        ["archlinux-bootstrap-2026.07.01-x86_64.tar.zst", 173015040, "2026-07-01 10:00"],
+        ["b2sums.txt", 1214, "2026-07-01 10:00"],
+        ["sha256sums.txt", 438, "2026-07-01 10:00"]
+      ],
+      "latest": []
+    },
+    "pool": { "packages": "@generate:16000" },
+    "lastsync": [["lastsync", 11, "2026-07-18 09:17"]],
+    "lastupdate": [["lastupdate", 11, "2026-07-18 09:12"]]
+  },
+  "artix": {
+    "system": { "os": { "x86_64": [
+      ["system.db", 262144, "2026-07-18 08:50"],
+      ["artix-sysvcompat-1-2-any.pkg.tar.zst", 8192, "2026-05-02 16:20"]
+    ] } }
+  },
+  "cachy": {
+    "repo": { "x86_64_v3": [
+      ["cachyos-v3.db", 5242880, "2026-07-18 08:00"],
+      ["linux-cachyos-6.15.6-2-x86_64_v3.pkg.tar.zst", 155189248, "2026-07-17 23:10"]
+    ] }
+  },
+  "endeavouros": {
+    "repo": [["endeavouros.db", 65536, "2026-07-18 07:30"]],
+    "iso": [["EndeavourOS_Mercury-2026.06.19.iso", 2684354560, "2026-06-19 15:00"]]
+  },
+  "endeavouros-t2": {
+    "iso": [["EndeavourOS_Mercury-t2-2026.06.19.iso", 2791728742, "2026-06-20 11:00"]]
+  },
+  "fyralabs": {
+    "terra": { "42": [["repodata", null, null]] }
+  },
+  "arch-mact2": {
+    "os": { "x86_64": [
+      ["mact2.db", 32768, "2026-07-18 05:45"],
+      ["linux-t2-6.15.6-1-x86_64.pkg.tar.zst", 146800640, "2026-07-17 22:00"]
+    ] }
+  },
+  "yurumc": {
+    "modpacks": [["YuruMC-S4-1.21.1.mrpack", 26214400, "2026-07-05 20:00"]],
+    "": [["README.txt", 812, "2026-07-05 19:58"]]
+  }
+}

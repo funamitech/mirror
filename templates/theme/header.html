@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- @include partials/head.html title="Browsing — YuruMirror" description="Browse the YuruMirror file tree — fast Arch-based distro mirrors served from Seoul, South Korea." -->
+    <script src="/assets/js/listing.js" defer></script>
+</head>
+
+<body>
+    <!-- @include partials/nav.html -->
+
+    <main class="mx-auto w-full max-w-5xl grow px-4 py-8 sm:px-6">
+        <nav aria-label="Breadcrumb">
+            <ol id="breadcrumbs" class="breadcrumbs"></ol>
+        </nav>
+
+        <section class="card mt-4 overflow-hidden" aria-label="Directory listing">
+            <header class="flex items-center gap-3 border-b border-line bg-inset/40 px-5 py-3.5">
+                <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-folder-open"/></svg>
+                <h1 id="directory-title" class="truncate text-[15px] font-semibold text-ink">Index</h1>
+                <span id="entry-count" class="ms-auto flex-none text-xs text-faint tabular-nums"></span>
+            </header>
+            <div class="overflow-x-auto">
+<!-- nginx fancyindex inserts <table id="list"> below this line -->

@@ -1,84 +1,359 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ fonts */
+
+@font-face {
+  font-family: "InterVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/InterVariable.woff2") format("woff2");
+}
+
+/* ----------------------------------------------------------------- tokens */
+
 @theme {
-  /* Fonts */
-  --font-inter: "Inter", "sans-serif";
-  --font-display: "Cal Sans", "Inter", "sans-serif";
+  --font-sans: "InterVariable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
 
-  /* Colors: primary scale */
-  --color-primary-50: #faf9fa;
-  --color-primary-100: #f4f2f4;
-  --color-primary-200: #e9e5e8;
-  --color-primary-300: #d8d0d6;
-  --color-primary-400: #c1b3bc;
-  --color-primary-500: #a89aa5;
-  --color-primary-600: #8f7f8a;
-  --color-primary-700: #7f6f79;
-  --color-primary-800: #6b5b65;
-  --color-primary-900: #5a4d56;
+  /* Brand plum ramp — from Yui's uniform (#7f6f79) */
+  --color-plum-50: #faf8f9;
+  --color-plum-100: #f3eff2;
+  --color-plum-200: #e8e1e6;
+  --color-plum-300: #d5cad2;
+  --color-plum-400: #b3a2ae;
+  --color-plum-500: #94808d;
+  --color-plum-600: #7f6f79;
+  --color-plum-700: #6b5b65;
+  --color-plum-800: #574a52;
+  --color-plum-900: #453a41;
+  --color-plum-950: #292127;
 
-  /* Colors: accent */
-  --color-accent-400: #8f7f8a;
-  --color-accent-500: #7f6f79;
-  --color-accent-600: #6b5b65;
+  /* Semantic tokens (light values; flipped for dark below) */
+  --color-canvas: #faf8f9;
+  --color-surface: #ffffff;
+  --color-inset: #f3eff2;
+  --color-line: #eae3e8;
+  --color-line-strong: #d5cad2;
+  --color-ink: #211b21;
+  --color-fg: #4e4552;
+  --color-faint: #6d6375; /* ≥4.5:1 on canvas/surface/inset/accent-soft (WCAG AA) */
+  --color-accent: #7f6f79;
+  --color-accent-strong: #61525c;
+  --color-accent-soft: #f0e9ef;
+  --color-accent-fill: #6b5b65;
+  --color-accent-fill-hover: #574a52;
+  --color-on-accent: #ffffff;
 }
 
-/* Custom animations */
-@keyframes gradient {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-canvas: #17131a;
+      --color-surface: #1e1922;
+      --color-inset: #29222e;
+      --color-line: #342c3b;
+      --color-line-strong: #4a4053;
+      --color-ink: #f1ecf3;
+      --color-fg: #c7bccd;
+      --color-faint: #978da1; /* ≥4.5:1 on all dark surfaces (WCAG AA) */
+      --color-accent: #b9a4b4;
+      --color-accent-strong: #d3bfcd;
+      --color-accent-soft: #2e2634;
+      --color-accent-fill: #c3aabb;
+      --color-accent-fill-hover: #d3bdcc;
+      --color-on-accent: #251d29;
+    }
   }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
+
+  :root[data-theme="dark"] {
+    --color-canvas: #17131a;
+    --color-surface: #1e1922;
+    --color-inset: #29222e;
+    --color-line: #342c3b;
+    --color-line-strong: #4a4053;
+    --color-ink: #f1ecf3;
+    --color-fg: #c7bccd;
+    --color-faint: #978da1; /* ≥4.5:1 on all dark surfaces (WCAG AA) */
+    --color-accent: #b9a4b4;
+    --color-accent-strong: #d3bfcd;
+    --color-accent-soft: #2e2634;
+    --color-accent-fill: #c3aabb;
+    --color-accent-fill-hover: #d3bdcc;
+    --color-on-accent: #251d29;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply flex min-h-svh flex-col bg-canvas font-sans text-[15px]/relaxed text-fg antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 28%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Thin, quiet scrollbars */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
   }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 20px #6366f1; }
-  to { box-shadow: 0 0 30px #8b5cf6, 0 0 40px #8b5cf6; }
-}
-
-@utility animate-gradient {
-  animation: gradient 8s linear infinite;
-}
-
-@utility animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@utility animate-glow {
-  animation: glow 2s ease-in-out infinite alternate;
-} 
+/* ------------------------------------------------------------- components */
 
 @layer components {
-  /* Global dropdown pill-shaped hover highlights */
-  .group .absolute a {
-    border-radius: 9999px !important;
-    margin: 2px 8px !important;
-    padding: 8px 16px !important;
+  /* Navigation */
+  .nav-link {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-fg transition-colors hover:bg-inset hover:text-ink;
   }
 
-  #mobile-menu a {
-    border-radius: 9999px !important;
-    margin: 2px 4px !important;
+  .icon-btn {
+    @apply inline-flex size-8 items-center justify-center rounded-lg text-fg transition-colors hover:bg-inset hover:text-ink;
   }
 
-  /* Lighter hover background for dropdown items */
-  .group .absolute a:hover,
-  #mobile-menu a:hover {
-    background: rgba(255, 255, 255, 0.20) !important;
+  .menu-item {
+    @apply flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-fg transition-colors hover:bg-inset hover:text-ink;
   }
 
-  /* Keep dropdown icons from turning white on hover */
-  .group .absolute a:hover i,
-  #mobile-menu a:hover i {
-    color: var(--color-accent-500) !important;
+  .nav-link.is-active,
+  .menu-item.is-active {
+    @apply bg-accent-soft text-accent-strong;
   }
-} 
+
+  .dropdown-panel {
+    @apply absolute right-0 top-full mt-2 w-64 rounded-xl border border-line bg-surface p-1.5 shadow-lg shadow-plum-950/5;
+  }
+
+  .dropdown-panel:not([hidden]) {
+    animation: menu-in 140ms ease-out;
+  }
+
+  [data-dropdown] [aria-expanded="true"] > svg:last-child {
+    rotate: 180deg;
+  }
+
+  /* Theme toggle: show the icon for the scheme you would switch to */
+  .theme-icon-dark {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-icon-dark {
+      display: block;
+    }
+
+    :root:not([data-theme="light"]) .theme-icon-light {
+      display: none;
+    }
+  }
+
+  :root[data-theme="dark"] .theme-icon-dark {
+    display: block;
+  }
+
+  :root[data-theme="dark"] .theme-icon-light {
+    display: none;
+  }
+
+  /* Buttons, chips, cards */
+  .btn-primary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-accent-fill text-on-accent hover:bg-accent-fill-hover;
+  }
+
+  .btn-ghost {
+    @apply border border-line bg-surface text-ink hover:bg-inset;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-inset px-2.5 py-1 text-xs font-medium text-faint;
+  }
+
+  .chip-accent {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-strong;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+
+  .mirror-card {
+    @apply transition hover:-translate-y-0.5 hover:border-line-strong hover:shadow-md hover:shadow-plum-950/5;
+  }
+
+  .footer-link {
+    @apply text-faint transition-colors hover:text-accent-strong;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight text-ink;
+  }
+
+  /* Soft radial glows for hero / error pages */
+  .glow {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+  }
+
+  /* Breadcrumbs (listing pages, rendered by listing.js) */
+  .breadcrumbs {
+    @apply flex overflow-x-auto font-mono text-[13px] whitespace-nowrap;
+    scrollbar-width: none;
+  }
+
+  .breadcrumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .breadcrumbs li {
+    @apply flex flex-none items-center;
+  }
+
+  .breadcrumbs li + li::before {
+    content: "/";
+    @apply mx-2 text-line-strong;
+  }
+
+  .breadcrumbs a {
+    @apply rounded px-0.5 py-1 text-faint transition-colors hover:text-accent-strong;
+  }
+
+  .breadcrumbs li[aria-current] {
+    @apply font-semibold text-ink;
+  }
+
+  /* Directory listing table (nginx fancyindex output, normalized by listing.js).
+     table-fixed + explicit column widths keep layout a single cheap pass even
+     for 16k-row directories like arch/pool/packages. */
+  #list {
+    @apply w-full table-fixed border-collapse text-sm;
+  }
+
+  #list colgroup {
+    display: none;
+  }
+
+  #list thead th {
+    @apply border-b border-line bg-inset/60 px-5 py-2.5 text-left text-[11px] font-semibold tracking-wider whitespace-nowrap text-faint uppercase;
+  }
+
+  #list thead th a {
+    @apply transition-colors hover:text-ink;
+  }
+
+  #list thead th:nth-child(n + 2) {
+    @apply text-right;
+  }
+
+  #list thead th:nth-child(2) {
+    @apply w-32;
+  }
+
+  #list thead th:nth-child(3) {
+    @apply w-48;
+  }
+
+  #list tbody td {
+    @apply px-5 py-2;
+  }
+
+  #list tbody tr {
+    @apply border-t border-line/60 first:border-t-0;
+  }
+
+  #list tbody tr:hover {
+    @apply bg-inset/50;
+  }
+
+  #list tbody td:first-child {
+    @apply font-mono text-[13px] break-all;
+  }
+
+  #list tbody td:nth-child(n + 2) {
+    @apply text-right font-mono text-[13px] whitespace-nowrap text-faint tabular-nums;
+  }
+
+  #list .entry-link {
+    @apply flex items-center gap-2.5 text-fg transition-colors hover:text-accent-strong;
+  }
+
+  /* Row icons are pure CSS: a mask picked by the icon-* class listing.js
+     assigns. Inserting inline <svg><use> nodes instead costs hundreds of
+     milliseconds on 16k-file pool/ directories. */
+  #list .entry-link::before {
+    content: "";
+    @apply size-4 flex-none;
+    background-color: var(--color-faint);
+    mask: var(--icon) center / contain no-repeat;
+  }
+
+  #list .entry-link.is-dir {
+    @apply font-medium text-ink;
+  }
+
+  #list .entry-link.is-dir:hover {
+    @apply text-accent-strong;
+  }
+
+  #list .entry-link.is-dir::before {
+    background-color: var(--color-accent);
+  }
+
+  /* Lucide outlines (ISC license) as URL-encoded masks */
+  .icon-folder { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/%3E%3C/svg%3E"); }
+  .icon-file { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3C/svg%3E"); }
+  .icon-file-text { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Cpath d='M10 9H8'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3C/svg%3E"); }
+  .icon-shield-check { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E"); }
+  .icon-database { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='12' cy='5' rx='9' ry='3'/%3E%3Cpath d='M3 5V19A9 3 0 0 0 21 19V5'/%3E%3Cpath d='M3 12A9 3 0 0 0 21 12'/%3E%3C/svg%3E"); }
+  .icon-file-image { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Ccircle cx='10' cy='12' r='2'/%3E%3Cpath d='m20 17-1.296-1.296a2.41 2.41 0 0 0-3.408 0L9 22'/%3E%3C/svg%3E"); }
+  .icon-file-music { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Cpath d='M8 20v-7l3 1.474'/%3E%3Ccircle cx='6' cy='20' r='2'/%3E%3C/svg%3E"); }
+  .icon-file-video { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Cpath d='M15.033 13.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56v-4.704a.645.645 0 0 1 .967-.56z'/%3E%3C/svg%3E"); }
+  .icon-file-archive { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Cpath d='M8 12v-1'/%3E%3Cpath d='M8 18v-2'/%3E%3Cpath d='M8 7V6'/%3E%3Ccircle cx='8' cy='20' r='2'/%3E%3C/svg%3E"); }
+  .icon-disc { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3C/svg%3E"); }
+  .icon-file-code { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/%3E%3Cpath d='M14 2v5a1 1 0 0 0 1 1h5'/%3E%3Cpath d='M10 12.5 8 15l2 2.5'/%3E%3Cpath d='m14 12.5 2 2.5-2 2.5'/%3E%3C/svg%3E"); }
+
+  /* On narrow screens, keep only the file name column */
+  @media (max-width: 40rem) {
+    #list :is(th, td):nth-child(n + 2) {
+      display: none;
+    }
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- @include partials/head.html title="Donate — YuruMirror" description="Help keep YuruMirror's disks spinning. Running a mirror costs money — support it through GitHub Sponsors." -->
+</head>
+
+<body>
+    <!-- @include partials/nav.html -->
+
+    <main class="relative mx-auto w-full max-w-2xl grow px-4 py-16 sm:px-6 lg:py-20">
+        <div class="glow -top-20 right-0 size-80 bg-plum-400/15" aria-hidden="true"></div>
+
+        <header class="relative text-center">
+            <span class="mx-auto flex size-12 items-center justify-center rounded-2xl bg-accent-soft text-accent-strong">
+                <svg class="size-6" aria-hidden="true"><use href="#i-heart"/></svg>
+            </span>
+            <h1 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Support YuruMirror</h1>
+            <p class="mx-auto mt-4 max-w-lg text-lg/relaxed">
+                Running a mirror costs money — lots of money! I'm just an undergraduate
+                running this server alone, so any help is appreciated.
+            </p>
+        </header>
+
+        <section class="card relative mt-10 p-8" aria-labelledby="gh-sponsors">
+            <div class="flex items-center gap-4">
+                <span class="flex size-12 items-center justify-center rounded-2xl bg-inset text-ink">
+                    <svg class="size-6" aria-hidden="true"><use href="#i-github"/></svg>
+                </span>
+                <div>
+                    <h2 id="gh-sponsors" class="text-xl font-bold text-ink">GitHub Sponsors</h2>
+                    <p class="text-sm text-faint">Currently the only option — Toss ID has reached its EOL.</p>
+                </div>
+            </div>
+
+            <dl class="mt-6 divide-y divide-line border-y border-line text-sm">
+                <div class="flex items-center justify-between py-3">
+                    <dt class="text-faint">Available</dt>
+                    <dd class="font-medium text-ink">Worldwide</dd>
+                </div>
+                <div class="flex items-center justify-between py-3">
+                    <dt class="text-faint">Billing</dt>
+                    <dd class="font-medium text-ink">One-time, monthly or yearly</dd>
+                </div>
+            </dl>
+
+            <a href="https://github.com/sponsors/NoaHimesaka1873" class="btn-primary mt-6 w-full">
+                <svg class="size-4" aria-hidden="true"><use href="#i-heart"/></svg>
+                Sponsor on GitHub
+            </a>
+        </section>
+
+        <section class="relative mt-10" aria-labelledby="why-donate">
+            <h2 id="why-donate" class="text-lg font-semibold text-ink">Where it goes</h2>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                <li class="card flex items-center gap-3 p-4 text-sm">
+                    <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-server"/></svg>
+                    Server hosting — <strong class="text-ink">$30+/month</strong>
+                </li>
+                <li class="card flex items-center gap-3 p-4 text-sm">
+                    <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-zap"/></svg>
+                    Bandwidth for the 4 Gbps uplink
+                </li>
+                <li class="card flex items-center gap-3 p-4 text-sm">
+                    <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-database"/></svg>
+                    Storage for every distro we mirror
+                </li>
+                <li class="card flex items-center gap-3 p-4 text-sm">
+                    <svg class="size-4 flex-none text-accent" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                    Time and care to keep it all running
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- @include partials/footer.html -->
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- @include partials/head.html title="YuruMirror — Arch-based Linux mirrors in Seoul" description="Fast, laid-back package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs — 4 Gbps from Seoul, South Korea." -->
+</head>
+
+<body>
+    <!-- @include partials/nav.html -->
+
+    <main>
+        <!-- Hero: Yui is the backdrop of the whole section, fading into the canvas -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-y-0 right-0 w-[88%] [mask-image:linear-gradient(to_right,transparent,black_55%)] sm:w-[72%] lg:w-[62%] lg:[mask-image:linear-gradient(to_right,transparent,black_40%)]" aria-hidden="true">
+                <img src="/assets/img/IMG_0010.webp" alt="" fetchpriority="high"
+                     class="size-full object-cover object-[50%_30%]">
+                <div class="absolute inset-0 bg-canvas/55 sm:bg-canvas/25 lg:bg-canvas/10"></div>
+            </div>
+            <div class="glow -top-32 -left-24 size-[28rem] bg-plum-400/20" aria-hidden="true"></div>
+            <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-canvas to-transparent" aria-hidden="true"></div>
+
+            <div class="relative mx-auto flex max-w-6xl items-center px-4 py-16 sm:px-6 lg:min-h-[37rem] lg:py-24">
+                <div class="max-w-2xl">
+                    <p class="chip">
+                        <svg class="size-3.5" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                        Seoul, South Korea
+                        <span class="text-line-strong">·</span>
+                        <svg class="size-3.5" aria-hidden="true"><use href="#i-zap"/></svg>
+                        4 Gbps
+                    </p>
+                    <h1 class="mt-5 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+                        The laid-back mirror for
+                        <span class="text-accent-strong">Arch-based</span> distros.
+                    </h1>
+                    <p class="mt-5 max-w-xl text-lg/relaxed">
+                        Package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS
+                        and Fyra Labs — served from Oracle Cloud in Seoul, synced as
+                        often as every five minutes.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="#mirrors" class="btn-primary">
+                            Browse the mirrors
+                            <svg class="size-4" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+                        </a>
+                        <a href="/donate.html" class="btn-ghost">
+                            <svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>
+                            Support the mirror
+                        </a>
+                    </div>
+                    <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+                        <div>
+                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Repositories</dt>
+                            <dd class="mt-1 text-2xl font-bold text-ink tabular-nums">8</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Fastest sync</dt>
+                            <dd class="mt-1 text-2xl font-bold text-ink tabular-nums">5 min</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Mirroring since</dt>
+                            <dd class="mt-1 text-2xl font-bold text-ink tabular-nums">2022</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mirrors -->
+        <section id="mirrors" class="scroll-mt-20 border-t border-line bg-surface/50">
+            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+                <h2 class="section-title">Mirrored repositories</h2>
+                <p class="mt-2 max-w-2xl">
+                    Point your package manager at
+                    <code class="rounded bg-inset px-1.5 py-0.5 font-mono text-[13px] text-accent-strong">mirror.funami.tech</code>
+                    and enjoy. Directory listings are browsable for every repo.
+                </p>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <a href="/arch/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/archlinux.svg" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">Arch Linux</h3>
+                                <p class="font-mono text-xs text-faint">/arch/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">
+                            <svg class="size-3" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                            syncs every 5 min
+                        </p>
+                    </a>
+
+                    <a href="/artix/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/artix.png" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">Artix Linux</h3>
+                                <p class="font-mono text-xs text-faint">/artix/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">
+                            <svg class="size-3" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                            syncs every 15 min
+                        </p>
+                    </a>
+
+                    <a href="/cachy/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/cachyos.svg" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">CachyOS</h3>
+                                <p class="font-mono text-xs text-faint">/cachy/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">
+                            <svg class="size-3" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                            syncs every 30 min
+                        </p>
+                    </a>
+
+                    <a href="/endeavouros/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/endeavouros.png" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">EndeavourOS</h3>
+                                <p class="font-mono text-xs text-faint">/endeavouros/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">
+                            <svg class="size-3" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                            syncs hourly
+                        </p>
+                    </a>
+
+                    <a href="/fyralabs/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/fyralabs.svg" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">Fyra Labs</h3>
+                                <p class="font-mono text-xs text-faint">/fyralabs/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">
+                            <svg class="size-3" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                            syncs every 5 min
+                        </p>
+                    </a>
+
+                    <a href="/arch-mact2/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/t2linux.svg" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">Arch Linux for T2 Macs</h3>
+                                <p class="font-mono text-xs text-faint">/arch-mact2/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">t2linux packages</p>
+                    </a>
+
+                    <a href="/endeavouros-t2/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <img src="/assets/img/t2linux.svg" alt="" class="size-9">
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">EndeavourOS T2 ISOs</h3>
+                                <p class="font-mono text-xs text-faint">/endeavouros-t2/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">t2linux ISOs</p>
+                    </a>
+
+                    <a href="/yurumc/" class="mirror-card card group p-5">
+                        <div class="flex items-center gap-3">
+                            <span class="flex size-9 items-center justify-center rounded-xl bg-inset text-fg">
+                                <svg class="size-5" aria-hidden="true"><use href="#i-box"/></svg>
+                            </span>
+                            <div>
+                                <h3 class="font-semibold text-ink group-hover:text-accent-strong">YuruMC</h3>
+                                <p class="font-mono text-xs text-faint">/yurumc/</p>
+                            </div>
+                        </div>
+                        <p class="chip mt-4">Minecraft modpacks</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why -->
+        <section class="border-t border-line">
+            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+                <h2 class="section-title">Why this mirror?</h2>
+                <div class="mt-8 grid gap-4 md:grid-cols-3">
+                    <div class="card p-6">
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-accent-soft text-accent-strong">
+                            <svg class="size-5" aria-hidden="true"><use href="#i-server"/></svg>
+                        </span>
+                        <h3 class="mt-4 font-semibold text-ink">Oracle Cloud, Seoul</h3>
+                        <p class="mt-2 text-sm/relaxed">
+                            Not a homelab in a closet — YuruMirror runs in Oracle Cloud's
+                            Seoul region, on datacenter-grade power, cooling and network.
+                        </p>
+                    </div>
+                    <div class="card p-6">
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-accent-soft text-accent-strong">
+                            <svg class="size-5" aria-hidden="true"><use href="#i-zap"/></svg>
+                        </span>
+                        <h3 class="mt-4 font-semibold text-ink">4 Gbps uplink</h3>
+                        <p class="mt-2 text-sm/relaxed">
+                            Oracle Cloud networking means your downloads are limited by
+                            your connection, not ours.
+                        </p>
+                    </div>
+                    <div class="card p-6">
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-accent-soft text-accent-strong">
+                            <svg class="size-5" aria-hidden="true"><use href="#i-refresh-cw"/></svg>
+                        </span>
+                        <h3 class="mt-4 font-semibold text-ink">Always fresh</h3>
+                        <p class="mt-2 text-sm/relaxed">
+                            Frequent synchronization — every 5 minutes for Arch and Fyra Labs,
+                            15 for Artix, 30 for CachyOS, hourly for EndeavourOS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supporters -->
+        <section class="border-t border-line bg-surface/50">
+            <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+                <div class="card flex flex-col gap-8 p-8 md:flex-row md:items-center md:justify-between">
+                    <div class="max-w-md">
+                        <h2 class="section-title">Special thanks</h2>
+                        <p class="mt-2 text-sm/relaxed">
+                            YuruMirror is run by one undergraduate — generous people help
+                            keep the disks spinning and the bandwidth flowing.
+                        </p>
+                        <a href="/donate.html" class="btn-ghost mt-5">
+                            <svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>
+                            Become a supporter
+                        </a>
+                    </div>
+                    <a href="https://hyeon.me" class="group flex items-center gap-4 rounded-2xl border border-line bg-canvas p-5 transition-colors hover:border-line-strong">
+                        <img src="/assets/img/hyeon.jpg" alt="" width="56" height="56" class="size-14 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-ink group-hover:text-accent-strong">Jihyeon Kim</p>
+                            <p class="text-sm text-faint">Supporting $180 / year</p>
+                            <p class="mt-0.5 inline-flex items-center gap-1 text-xs text-faint">
+                                hyeon.me
+                                <svg class="size-3" aria-hidden="true"><use href="#i-external-link"/></svg>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- @include partials/footer.html -->
+</body>
+
+</html>
