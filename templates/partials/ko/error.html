@@ -20,9 +20,9 @@
                  class="mx-auto mt-6 max-h-64 w-auto rounded-2xl border border-line">
             <p class="mt-6 text-sm/relaxed">{{message}}</p>
             <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href="/ko/" class="btn-primary">
-                    <svg class="size-4" aria-hidden="true"><use href="#i-house"/></svg>
-                    홈으로
+                <a href="{{homehref}}" class="btn-primary">
+                    <svg class="size-4" aria-hidden="true"><use href="#i-{{homeicon}}"/></svg>
+                    {{homelabel}}
                 </a>
                 <a href="/ko/#mirrors" class="btn-ghost">
                     <svg class="size-4" aria-hidden="true"><use href="#i-folder-open"/></svg>
