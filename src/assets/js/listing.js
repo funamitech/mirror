@@ -32,56 +32,56 @@
   var KO = {
     text: {
       // Page chrome (templates/theme/header.html)
-      'Browsing — YuruMirror': 'Browsing — YuruMirror',
-      'Breadcrumb': 'Breadcrumb',
-      'Directory listing': 'Directory listing',
-      'Index': 'Index',
+      'Browsing — YuruMirror': '탐색 · YuruMirror',
+      'Breadcrumb': '탐색 경로',
+      'Directory listing': '디렉터리 목록',
+      'Index': '인덱스',
       // Table head (written by nginx fancyindex)
-      'File Name': 'File Name',
-      'File Size': 'File Size',
-      'Date': 'Date',
+      'File Name': '파일명',
+      'File Size': '파일 크기',
+      'Date': '날짜',
       // Navigation (templates/partials/nav.html)
-      'Main': 'Main',
-      'Mobile': 'Mobile',
-      'Distros': 'Distros',
-      'Donate': 'Donate',
-      'Source on GitHub': 'Source on GitHub',
-      'Toggle color theme': 'Toggle color theme',
-      'Menu': 'Menu',
-      'Arch Linux for T2 Macs': 'Arch Linux for T2 Macs',
-      'EndeavourOS T2 ISOs': 'EndeavourOS T2 ISOs',
-      'KOReader nightly': 'KOReader nightly',
-      'Back to YuruVerse': 'Back to YuruVerse',
+      'Main': '메인',
+      'Mobile': '모바일',
+      'Distros': '배포판',
+      'Donate': '후원',
+      'Source on GitHub': 'GitHub 소스 코드',
+      'Toggle color theme': '색상 테마 전환',
+      'Menu': '메뉴',
+      'Arch Linux for T2 Macs': 'T2 Mac용 Arch Linux',
+      'EndeavourOS T2 ISOs': 'EndeavourOS T2 ISO',
+      'KOReader nightly': 'KOReader 나이틀리',
+      'Back to YuruVerse': 'YuruVerse로 돌아가기',
       // Footer (templates/partials/footer.html)
-      'Email': 'Email',
-      'Remove +SPAM and use real @ and .': 'Remove +SPAM and use real @ and .',
-      'Mirrors': 'Mirrors',
-      'All repositories →': 'All repositories →',
-      'Powered by': 'Powered by',
-      'This theme (GPL)': 'This theme (GPL)',
-      'Network': 'Network',
-      '4 Gbps uplink': '4 Gbps uplink',
-      'Seoul, South Korea': 'Seoul, South Korea',
+      'Email': '이메일',
+      'Remove +SPAM and use real @ and .': '+SPAM을 빼고 @과 .을 넣어 주세요',
+      'Mirrors': '미러 목록',
+      'All repositories →': '전체 저장소 →',
+      'Powered by': '사용 기술',
+      'This theme (GPL)': '이 테마 (GPL)',
+      'Network': '네트워크',
+      '4 Gbps uplink': '4 Gbps 업링크',
+      'Seoul, South Korea': '대한민국 서울',
       'Oracle Cloud': 'Oracle Cloud'
     },
     html: {
       'Fast, laid-back package mirrors for Arch-based distros — served from Seoul with love.':
-        'Fast, laid-back package mirrors for Arch-based distros — served from Seoul with\n' +
+        'Arch 기반 배포판을 위한 빠르고 느긋한 패키지 미러. 서울에서\n' +
         '<svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>' +
-        '<span class="sr-only">love</span>.',
+        '<span class="sr-only">사랑</span>을 담아.',
       '© 2022–2026 funami.tech YuruVerse. Some Rights Reserved.':
         '© 2022–2026 <a class="footer-link" href="https://funami.tech">funami.tech YuruVerse</a>. Some Rights Reserved.',
       'Proudly participating in the ROKFOSS project.':
-        'Proudly participating in the <a class="footer-link" href="https://http.krfoss.org">ROKFOSS project</a>.'
+        '<a class="footer-link" href="https://http.krfoss.org">ROKFOSS 프로젝트</a>에 참여하고 있어요.'
     },
     js: {
-      home: 'Home',
-      directory: '{n} directory',
-      directories: '{n} directories',
-      file: '{n} file',
-      files: '{n} files',
-      empty: 'This directory is empty.',
-      titleSuffix: ' — YuruMirror'
+      home: '홈',
+      directory: '디렉터리 {n}개',
+      directories: '디렉터리 {n}개',
+      file: '파일 {n}개',
+      files: '파일 {n}개',
+      empty: '이 디렉터리는 비어 있어요.',
+      titleSuffix: ' · YuruMirror'
     }
   };
 

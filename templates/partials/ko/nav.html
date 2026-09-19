@@ -7,7 +7,7 @@
 
         <div class="relative hidden md:block" data-dropdown>
             <button type="button" class="nav-link" aria-expanded="false" aria-haspopup="true">
-                Distros
+                배포판
                 <svg class="size-3.5 transition-transform duration-200" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="dropdown-panel" hidden>
@@ -17,52 +17,52 @@
                 <a class="menu-item" href="/endeavouros/"><img src="/assets/img/endeavouros.png" alt="" class="size-4">EndeavourOS</a>
                 <a class="menu-item" href="/fyralabs/"><img src="/assets/img/fyralabs.svg" alt="" class="size-4">Fyra Labs</a>
                 <div class="my-1.5 border-t border-line"></div>
-                <a class="menu-item" href="/arch-mact2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">Arch Linux for T2 Macs</a>
-                <a class="menu-item" href="/endeavouros-t2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">EndeavourOS T2 ISOs</a>
-                <a class="menu-item" href="/koreader-nightly/"><img src="/assets/img/koreader.svg" alt="" class="size-4">KOReader nightly</a>
+                <a class="menu-item" href="/arch-mact2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">T2 Mac용 Arch Linux</a>
+                <a class="menu-item" href="/endeavouros-t2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">EndeavourOS T2 ISO</a>
+                <a class="menu-item" href="/koreader-nightly/"><img src="/assets/img/koreader.svg" alt="" class="size-4">KOReader 나이틀리</a>
                 <a class="menu-item" href="/yurumc/"><svg class="size-4" aria-hidden="true"><use href="#i-box"/></svg>YuruMC</a>
                 <div class="my-1.5 border-t border-line"></div>
-                <a class="menu-item" href="https://funami.tech"><svg class="size-4" aria-hidden="true"><use href="#i-globe"/></svg>Back to YuruVerse<svg class="ms-auto size-3 text-faint" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+                <a class="menu-item" href="https://funami.tech"><svg class="size-4" aria-hidden="true"><use href="#i-globe"/></svg>YuruVerse로 돌아가기<svg class="ms-auto size-3 text-faint" aria-hidden="true"><use href="#i-external-link"/></svg></a>
             </div>
         </div>
 
         <a class="nav-link hidden md:inline-flex" href="/ko/donate.html">
             <svg class="size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>
-            Donate
+            후원
         </a>
-        <a class="icon-btn hidden md:inline-flex" href="https://github.com/funamitech/mirror" aria-label="Source on GitHub">
+        <a class="icon-btn hidden md:inline-flex" href="https://github.com/funamitech/mirror" aria-label="GitHub 소스 코드">
             <svg class="size-4" aria-hidden="true"><use href="#i-github"/></svg>
         </a>
         <a class="nav-link lang-switch" href="{{langhref}}" hreflang="en" lang="en" data-lang-switch>
             <svg class="size-3.5 max-sm:hidden" aria-hidden="true"><use href="#i-globe"/></svg>
             <span data-lang-label>English</span><span class="sr-only" lang="ko" data-lang-hint> (영어)</span>
         </a>
-        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle color theme">
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="색상 테마 전환">
             <svg class="size-4 theme-icon-light" aria-hidden="true"><use href="#i-moon"/></svg>
             <svg class="size-4 theme-icon-dark" aria-hidden="true"><use href="#i-sun"/></svg>
         </button>
-        <button type="button" class="icon-btn md:hidden" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+        <button type="button" class="icon-btn md:hidden" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴">
             <svg class="size-4" data-icon-open aria-hidden="true"><use href="#i-menu"/></svg>
             <svg class="size-4" data-icon-close hidden aria-hidden="true"><use href="#i-x"/></svg>
         </button>
     </nav>
 
     <div id="mobile-menu" class="border-t border-line px-4 pb-4 pt-2 md:hidden" hidden>
-        <nav class="grid gap-0.5" aria-label="Mobile">
-            <a class="menu-item" href="/ko/donate.html"><svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>Donate</a>
+        <nav class="grid gap-0.5" aria-label="모바일">
+            <a class="menu-item" href="/ko/donate.html"><svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>후원</a>
             <div class="my-1.5 border-t border-line"></div>
             <a class="menu-item" href="/arch/"><img src="/assets/img/archlinux.svg" alt="" class="size-4">Arch Linux</a>
             <a class="menu-item" href="/artix/"><img src="/assets/img/artix.png" alt="" class="size-4">Artix Linux</a>
             <a class="menu-item" href="/cachy/"><img src="/assets/img/cachyos.svg" alt="" class="size-4">CachyOS</a>
             <a class="menu-item" href="/endeavouros/"><img src="/assets/img/endeavouros.png" alt="" class="size-4">EndeavourOS</a>
             <a class="menu-item" href="/fyralabs/"><img src="/assets/img/fyralabs.svg" alt="" class="size-4">Fyra Labs</a>
-            <a class="menu-item" href="/arch-mact2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">Arch Linux for T2 Macs</a>
-            <a class="menu-item" href="/endeavouros-t2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">EndeavourOS T2 ISOs</a>
-            <a class="menu-item" href="/koreader-nightly/"><img src="/assets/img/koreader.svg" alt="" class="size-4">KOReader nightly</a>
+            <a class="menu-item" href="/arch-mact2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">T2 Mac용 Arch Linux</a>
+            <a class="menu-item" href="/endeavouros-t2/"><img src="/assets/img/t2linux.svg" alt="" class="size-4">EndeavourOS T2 ISO</a>
+            <a class="menu-item" href="/koreader-nightly/"><img src="/assets/img/koreader.svg" alt="" class="size-4">KOReader 나이틀리</a>
             <a class="menu-item" href="/yurumc/"><svg class="size-4" aria-hidden="true"><use href="#i-box"/></svg>YuruMC</a>
             <div class="my-1.5 border-t border-line"></div>
-            <a class="menu-item" href="https://github.com/funamitech/mirror"><svg class="size-4" aria-hidden="true"><use href="#i-github"/></svg>Source on GitHub</a>
-            <a class="menu-item" href="https://funami.tech"><svg class="size-4" aria-hidden="true"><use href="#i-globe"/></svg>Back to YuruVerse<svg class="ms-auto size-3 text-faint" aria-hidden="true"><use href="#i-external-link"/></svg></a>
+            <a class="menu-item" href="https://github.com/funamitech/mirror"><svg class="size-4" aria-hidden="true"><use href="#i-github"/></svg>GitHub 소스 코드</a>
+            <a class="menu-item" href="https://funami.tech"><svg class="size-4" aria-hidden="true"><use href="#i-globe"/></svg>YuruVerse로 돌아가기<svg class="ms-auto size-3 text-faint" aria-hidden="true"><use href="#i-external-link"/></svg></a>
         </nav>
     </div>
 </header>
