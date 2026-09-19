@@ -331,6 +331,11 @@
       if (scope.hasAttribute('aria-label')) scope.setAttribute('aria-label', t(scope.getAttribute('aria-label')));
     });
 
+    // Labelled sections holding the file table: only their own label, never the rows
+    Array.prototype.forEach.call(document.querySelectorAll('main section[aria-label]'), function(section) {
+      section.setAttribute('aria-label', t(section.getAttribute('aria-label')));
+    });
+
     // The switch now leads back to English (the labels are final, not placeholders)
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang-switch]'), function(link) {
       link.setAttribute('href', '?lang=en');
