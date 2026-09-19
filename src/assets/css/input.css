@@ -10,16 +10,27 @@
   src: url("/assets/fonts/InterVariable.woff2") format("woff2");
 }
 
+/* Korean pages set everything in Pretendard (its Latin is Inter-derived).
+ * Only html:lang(ko) uses this family, so English pages never fetch it. */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("/assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
 /* ----------------------------------------------------------------- tokens */
 
 @theme {
-  /* Inter has no Hangul, so Korean text falls through to the first
-   * installed Korean face. English pages need it too (the 한국어 switch). */
+  /* Inter has no Hangul. English pages still show one Korean label (the
+   * 한국어 switch), which falls through to an installed Korean face;
+   * "Pretendard" here is a local() name and never triggers a download. */
   --font-sans: "InterVariable", "Inter", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR",
     "Malgun Gothic", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
 
-  /* Brand plum ramp — from Yui's uniform (#7f6f79) */
+  /* Brand plum ramp, from Yui's uniform (#7f6f79) */
   --color-plum-50: #faf8f9;
   --color-plum-100: #f3eff2;
   --color-plum-200: #e8e1e6;
@@ -108,6 +119,12 @@
     html {
       scroll-behavior: auto;
     }
+  }
+
+  /* Korean pages: Pretendard for all text, Latin included */
+  html:lang(ko) {
+    --font-sans: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR",
+      "Malgun Gothic", sans-serif;
   }
 
   body {
@@ -213,11 +230,11 @@
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full bg-inset px-2.5 py-1 text-xs font-medium text-faint;
+    @apply inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-full bg-inset px-2.5 py-1 text-xs font-medium text-faint;
   }
 
   .chip-accent {
-    @apply inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-strong;
+    @apply inline-flex max-w-full flex-wrap items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent-strong;
   }
 
   .card {

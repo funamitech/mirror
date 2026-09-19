@@ -21,7 +21,6 @@
    * the `lang` cookie set by the language switch, else the browser's
    * navigator.language. English is the default.
    *
-   * The values below are still ENGLISH PLACEHOLDERS, copied from the keys.
    * - text: exact text of an element, aria-label or title in the shared
    *   header, nav, footer and table head (keys match the English markup
    *   in templates/theme/ and templates/partials/{nav,footer}.html).
@@ -32,7 +31,7 @@
   var KO = {
     text: {
       // Page chrome (templates/theme/header.html)
-      'Browsing — YuruMirror': '탐색 · YuruMirror',
+      'Browsing · YuruMirror': '탐색 · YuruMirror',
       'Breadcrumb': '탐색 경로',
       'Directory listing': '디렉터리 목록',
       'Index': '인덱스',
@@ -53,6 +52,7 @@
       'KOReader nightly': 'KOReader 나이틀리',
       'Back to YuruVerse': 'YuruVerse로 돌아가기',
       // Footer (templates/partials/footer.html)
+      'Mastodon': '마스토돈',
       'Email': '이메일',
       'Remove +SPAM and use real @ and .': '+SPAM을 빼고 @과 .을 넣어 주세요',
       'Mirrors': '미러 목록',
@@ -65,7 +65,7 @@
       'Oracle Cloud': 'Oracle Cloud'
     },
     html: {
-      'Fast, laid-back package mirrors for Arch-based distros — served from Seoul with love.':
+      'Fast, laid-back package mirrors for Arch-based distros, served from Seoul with love.':
         'Arch 기반 배포판을 위한 빠르고 느긋한 패키지 미러. 서울에서\n' +
         '<svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>' +
         '<span class="sr-only">사랑</span>을 담아.',
@@ -93,7 +93,7 @@
     file: '{n} file',
     files: '{n} files',
     empty: 'This directory is empty.',
-    titleSuffix: ' — YuruMirror'
+    titleSuffix: ' · YuruMirror'
   };
 
   /* --------------------------------------------------------- language */
@@ -203,7 +203,7 @@
     });
     list.appendChild(fragment);
 
-    // Keep the deepest crumb in view — but only after the browser has
+    // Keep the deepest crumb in view, but only after the browser has
     // laid the page out anyway: reading scrollWidth right here would
     // force a synchronous layout of thousands of still-dirty table rows.
     var scrollToEnd = function() { list.scrollLeft = list.scrollWidth; };

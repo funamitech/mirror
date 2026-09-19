@@ -1,4 +1,4 @@
-<!-- GENERATED from templates/ko/index.html — edit there, then run `npm run build` -->
+<!-- GENERATED from templates/ko/index.html: edit there, then run `npm run build` -->
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,7 +16,7 @@
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17131a">
 <link rel="icon" type="image/png" sizes="300x298" href="/assets/img/yuifunami-300px.png">
 <link rel="apple-touch-icon" href="/assets/img/yuifunami-300px.png">
-<link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/tailwind.css">
 <script>try { if (!document.documentElement.dataset.theme) { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } } catch (e) { /* no-op */ }</script>
 <script src="/assets/js/site.js" defer></script>
@@ -27,7 +27,7 @@
 
 <body>
     <header class="sticky top-0 z-40 border-b border-line/70 bg-canvas/85 backdrop-blur-md">
-    <nav class="mx-auto flex h-14 max-w-6xl items-center gap-1 px-4 sm:px-6" aria-label="Main">
+    <nav class="mx-auto flex h-14 max-w-6xl items-center gap-1 px-4 sm:px-6" aria-label="메인">
         <a href="/ko/" class="-mx-1.5 me-auto flex items-center gap-2.5 rounded-lg px-1.5 py-1 transition-colors hover:bg-inset">
             <img src="/assets/img/yuifunami-300px.png" alt="" width="28" height="28" class="size-7 rounded-full">
             <span class="text-[15px] font-semibold tracking-tight text-ink">YuruMirror</span>
@@ -108,13 +108,16 @@
 
             <div class="relative mx-auto flex max-w-6xl items-center px-4 py-16 sm:px-6 lg:min-h-[37rem] lg:py-24">
                 <div class="max-w-2xl">
-                    <p class="chip">
-                        <svg class="size-3.5" aria-hidden="true"><use href="#i-map-pin"/></svg>
-                        대한민국 서울
-                        <span class="text-line-strong">·</span>
-                        <svg class="size-3.5" aria-hidden="true"><use href="#i-zap"/></svg>
-                        4 Gbps
-                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <p class="chip">
+                            <svg class="size-3.5" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            대한민국 서울
+                        </p>
+                        <p class="chip">
+                            <svg class="size-3.5" aria-hidden="true"><use href="#i-zap"/></svg>
+                            4 Gbps
+                        </p>
+                    </div>
                     <h1 class="mt-5 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
                         <span class="text-accent-strong">Arch 기반</span> 배포판을 위한
                         느긋한 미러.
@@ -158,8 +161,7 @@
                 <h2 class="section-title">미러 저장소</h2>
                 <p class="mt-2 max-w-2xl">
                     패키지 관리자에서
-                    <code class="rounded bg-inset px-1.5 py-0.5 font-mono text-[13px] text-accent-strong">mirror.funami.tech</code>
-                    를 지정하면 돼요. 모든 저장소의 디렉터리 목록도 둘러볼 수 있어요.
+                    <code class="rounded bg-inset px-1.5 py-0.5 font-mono text-[13px] text-accent-strong">mirror.funami.tech</code>를 지정하면 돼요. 모든 저장소의 디렉터리 목록도 둘러볼 수 있어요.
                 </p>
 
                 <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -368,7 +370,7 @@
                     <svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg><span class="sr-only">사랑</span>을 담아.
                 </p>
                 <div class="mt-4 flex gap-1">
-                    <a class="icon-btn" href="https://toot.funami.tech/@yurumirror" aria-label="Mastodon"><svg class="size-4" aria-hidden="true"><use href="#i-mastodon"/></svg></a>
+                    <a class="icon-btn" href="https://toot.funami.tech/@yurumirror" aria-label="마스토돈"><svg class="size-4" aria-hidden="true"><use href="#i-mastodon"/></svg></a>
                     <a class="icon-btn" href="https://bsky.app/profile/funami.tech" aria-label="Bluesky"><svg class="size-4" aria-hidden="true"><use href="#i-bluesky"/></svg></a>
                     <a class="icon-btn" href="https://github.com/funamitech/mirror" aria-label="GitHub"><svg class="size-4" aria-hidden="true"><use href="#i-github"/></svg></a>
                     <a class="icon-btn" href="mailto:yui+SPAM[at]funami[dot]tech" title="+SPAM을 빼고 @과 .을 넣어 주세요" aria-label="이메일"><svg class="size-4" aria-hidden="true"><use href="#i-mail"/></svg></a>
