@@ -188,8 +188,13 @@ function page(rel) {
   return readFileSync(join(SRC, rel), 'utf8');
 }
 
+/** Set per request: emulates nginx turning ?lang=en|ko into the sticky `lang` cookie. */
+let langCookie = null;
+
 function send(res, status, body, type = 'text/html; charset=utf-8') {
-  res.writeHead(status, { 'Content-Type': type, 'Cache-Control': 'no-store' });
+  const headers = { 'Content-Type': type, 'Cache-Control': 'no-store' };
+  if (langCookie) headers['Set-Cookie'] = `lang=${langCookie}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  res.writeHead(status, headers);
   res.end(body);
 }
 
@@ -197,7 +202,7 @@ function send(res, status, body, type = 'text/html; charset=utf-8') {
 function forceTheme(html, query) {
   const theme = query.get('theme');
   if (theme !== 'dark' && theme !== 'light') return html;
-  return html.replace('<html lang="en">', `<html lang="en" data-theme="${theme}">`);
+  return html.replace(/<html lang="(\w+)">/, `<html lang="$1" data-theme="${theme}">`);
 }
 
 createServer((req, res) => {
@@ -210,6 +215,8 @@ createServer((req, res) => {
     return send(res, 400, 'bad request', 'text/plain');
   }
   console.log(`${req.method} ${urlPath}`);
+  const lang = url.searchParams.get('lang');
+  langCookie = lang === 'en' || lang === 'ko' ? lang : null;
 
   const safe = normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
   let filePath = join(SRC, safe);
@@ -227,6 +234,9 @@ createServer((req, res) => {
   }
 
   if (urlPath === '/' || urlPath === '/index.html') return send(res, 200, forceTheme(page('index.html'), url.searchParams));
+  if (urlPath === '/ko' || urlPath === '/ko/' || urlPath === '/ko/index.html') {
+    return send(res, 200, forceTheme(page('ko/index.html'), url.searchParams));
+  }
 
   // Static files and plain pages
   if (existsSync(filePath) && statSync(filePath).isFile()) {

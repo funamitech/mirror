@@ -13,7 +13,10 @@
 /* ----------------------------------------------------------------- tokens */
 
 @theme {
-  --font-sans: "InterVariable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Inter has no Hangul, so Korean text falls through to the first
+   * installed Korean face. English pages need it too (the 한국어 switch). */
+  --font-sans: "InterVariable", "Inter", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "JetBrains Mono", "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
 
   /* Brand plum ramp — from Yui's uniform (#7f6f79) */
@@ -111,6 +114,13 @@
     @apply flex min-h-svh flex-col bg-canvas font-sans text-[15px]/relaxed text-fg antialiased;
   }
 
+  /* Korean breaks between words, never inside one. overflow-wrap keeps
+   * long unbreakable runs (URLs, commands) from overflowing. */
+  :lang(ko) {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
   ::selection {
     background: color-mix(in oklab, var(--color-accent) 28%, transparent);
   }
@@ -133,6 +143,11 @@
   /* Navigation */
   .nav-link {
     @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-fg transition-colors hover:bg-inset hover:text-ink;
+  }
+
+  /* Language switch: a nav-link that tightens up in the phone header bar */
+  .lang-switch {
+    @apply max-sm:px-2;
   }
 
   .icon-btn {
