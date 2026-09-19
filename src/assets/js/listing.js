@@ -69,8 +69,8 @@
         'Arch 기반 배포판을 위한 빠르고 느긋한 패키지 미러. 서울에서\n' +
         '<svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>' +
         '<span class="sr-only">사랑</span>을 담아.',
-      '© 2022–2026 funami.tech YuruVerse. Some Rights Reserved.':
-        '© 2022–2026 <a class="footer-link" href="https://funami.tech">funami.tech YuruVerse</a>. Some Rights Reserved.',
+      '© 2021–2026 funami.tech YuruVerse. Some Rights Reserved.':
+        '© 2021–2026 <a class="footer-link" href="https://funami.tech">funami.tech YuruVerse</a>. Some Rights Reserved.',
       'Proudly participating in the ROKFOSS project.':
         '<a class="footer-link" href="https://http.krfoss.org">ROKFOSS 프로젝트</a>에 참여하고 있어요.'
     },
