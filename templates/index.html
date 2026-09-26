@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- @include partials/head.html font="InterVariable.woff2" title="YuruMirror · Arch-based Linux mirrors in Seoul" description="Fast, laid-back package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs. 4 Gbps from Seoul, South Korea." -->
+    <!-- @include partials/head.html font="InterVariable.woff2" title="YuruMirror · Mostly Arch-based Linux mirrors in Seoul" description="Mostly Arch-based package mirrors in Seoul, South Korea. Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs at 4 Gbps." -->
     <!-- @include partials/hreflang.html path="/" -->
 </head>
 
@@ -34,12 +34,12 @@
                     </div>
                     <h1 class="mt-5 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
                         The laid-back mirror for
-                        <span class="text-accent-strong">Arch-based</span> distros.
+                        mostly <span class="text-accent-strong">Arch-based</span> distros.
                     </h1>
                     <p class="mt-5 max-w-xl text-lg/relaxed">
                         Package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS
-                        and Fyra Labs, served from Oracle Cloud in Seoul, synced as
-                        often as every five minutes.
+                        and Fyra Labs, on Oracle Cloud in Seoul. Arch resyncs every
+                        5 minutes, so the mirror is probably fresher than your install.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3">
                         <a href="#mirrors" class="btn-primary">
@@ -53,7 +53,7 @@
                     </div>
                     <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-4">
                         <div>
-                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Repositories</dt>
+                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Mirrors</dt>
                             <dd class="mt-1 text-2xl font-bold text-ink tabular-nums">9</dd>
                         </div>
                         <div>
@@ -72,11 +72,11 @@
         <!-- Mirrors -->
         <section id="mirrors" class="scroll-mt-20 border-t border-line bg-surface/50">
             <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-                <h2 class="section-title">Mirrored repositories</h2>
+                <h2 class="section-title">All mirrors</h2>
                 <p class="mt-2 max-w-2xl">
                     Point your package manager at
                     <code class="rounded bg-inset px-1.5 py-0.5 font-mono text-[13px] text-accent-strong">mirror.funami.tech</code>
-                    and enjoy. Directory listings are browsable for every repo.
+                    and enjoy. Directory listings are browsable for every mirror.
                 </p>
 
                 <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -213,8 +213,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">Oracle Cloud, Seoul</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Not a homelab in a closet: YuruMirror runs in Oracle Cloud's
-                            Seoul region, on datacenter-grade power, cooling and network.
+                            Proper datacenter in Seoul (so someone else worries about the power for once).
                         </p>
                     </div>
                     <div class="card p-6">
@@ -223,8 +222,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">4 Gbps uplink</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Oracle Cloud networking means your downloads are limited by
-                            your connection, not ours.
+                            Your connection is the bottleneck here, not the mirror.
                         </p>
                     </div>
                     <div class="card p-6">
@@ -233,8 +231,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">Always fresh</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Frequent synchronization: every 5 minutes for Arch and Fyra Labs,
-                            15 for Artix, 30 for CachyOS, hourly for EndeavourOS.
+                            Arch and Fyra Labs resync every 5 minutes (probably excessive, not sorry). Artix every 15, CachyOS every 30, EndeavourOS hourly.
                         </p>
                     </div>
                 </div>
@@ -248,8 +245,7 @@
                     <div class="max-w-md">
                         <h2 class="section-title">Special thanks</h2>
                         <p class="mt-2 text-sm/relaxed">
-                            YuruMirror is run by one undergraduate. Generous people help
-                            keep the disks spinning and the bandwidth flowing.
+                            They keep the mirror running. I owe them one.
                         </p>
                         <a href="/donate.html" class="btn-ghost mt-5">
                             <svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>

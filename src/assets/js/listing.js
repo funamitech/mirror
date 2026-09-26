@@ -31,56 +31,55 @@
   var KO = {
     text: {
       // Page chrome (templates/theme/header.html)
-      'Browsing · YuruMirror': '탐색 · YuruMirror',
-      'Breadcrumb': '탐색 경로',
-      'Directory listing': '디렉터리 목록',
-      'Index': '인덱스',
+      'Browsing · YuruMirror': '둘러보는 중 · YuruMirror',
+      'Breadcrumb': '경로',
+      'Directory listing': '파일 목록',
+      'Index': '목록',
       // Table head (written by nginx fancyindex)
-      'File Name': '파일명',
-      'File Size': '파일 크기',
+      'File Name': '이름',
+      'File Size': '크기',
       'Date': '날짜',
       // Navigation (templates/partials/nav.html)
       'Main': '메인',
       'Mobile': '모바일',
-      'Distros': '배포판',
+      'Distros': '미러',
       'Donate': '후원',
-      'Source on GitHub': 'GitHub 소스 코드',
-      'Toggle color theme': '색상 테마 전환',
+      'Source on GitHub': 'GitHub 소스',
+      'Toggle color theme': '테마 전환',
       'Menu': '메뉴',
-      'Arch Linux for T2 Macs': 'T2 Mac용 Arch Linux',
+      'Arch Linux for T2 Macs': 'Arch Linux (T2 Mac)',
       'EndeavourOS T2 ISOs': 'EndeavourOS T2 ISO',
       'KOReader nightly': 'KOReader 나이틀리',
-      'Back to YuruVerse': 'YuruVerse로 돌아가기',
+      'Back to YuruVerse': 'YuruVerse 가기',
       // Footer (templates/partials/footer.html)
       'Mastodon': '마스토돈',
       'Email': '이메일',
-      'Remove +SPAM and use real @ and .': '+SPAM을 빼고 @과 .을 넣어 주세요',
-      'Mirrors': '미러 목록',
-      'All repositories →': '전체 저장소 →',
-      'Powered by': '사용 기술',
-      'This theme (GPL)': '이 테마 (GPL)',
+      'Remove +SPAM and use real @ and .': '+SPAM 빼고 @이랑 . 넣어',
+      'Mirrors': '미러',
+      'All mirrors →': '전체 미러 →',
+      'Powered by': '기술',
+      'This theme (GPL)': '테마 소스 (GPL)',
       'Network': '네트워크',
       '4 Gbps uplink': '4 Gbps 업링크',
-      'Seoul, South Korea': '대한민국 서울',
+      'Seoul, South Korea': '서울',
       'Oracle Cloud': 'Oracle Cloud'
     },
     html: {
-      'Fast, laid-back package mirrors for Arch-based distros, served from Seoul with love.':
-        'Arch 기반 배포판을 위한 빠르고 느긋한 패키지 미러. 서울에서\n' +
-        '<svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>' +
-        '<span class="sr-only">사랑</span>을 담아.',
+      'Fast, laid-back package mirrors for mostly Arch-based distros, served from Seoul with love.':
+        '주로 Arch 계열 패키지 미러, 서울에서 느긋하게 굴리는 중.',
       '© 2021–2026 funami.tech YuruVerse. Some Rights Reserved.':
         '© 2021–2026 <a class="footer-link" href="https://funami.tech">funami.tech YuruVerse</a>. Some Rights Reserved.',
       'Proudly participating in the ROKFOSS project.':
-        '<a class="footer-link" href="https://http.krfoss.org">ROKFOSS 프로젝트</a>에 참여하고 있어요.'
+        '<a class="footer-link" href="https://http.krfoss.org">ROKFOSS 프로젝트</a> 참여 중.'
     },
     js: {
+      mtlNote: 'AI 번역이야. 유이한테 한국어 시키면 서버 터져.',
       home: '홈',
-      directory: '디렉터리 {n}개',
-      directories: '디렉터리 {n}개',
-      file: '파일 {n}개',
-      files: '파일 {n}개',
-      empty: '이 디렉터리는 비어 있어요.',
+      directory: '{n}개 디렉터리',
+      directories: '{n}개 디렉터리',
+      file: '{n}개 파일',
+      files: '{n}개 파일',
+      empty: '여긴 비어 있어.',
       titleSuffix: ' · YuruMirror'
     }
   };
@@ -329,6 +328,12 @@
         if (el.tagName === 'A' && Object.prototype.hasOwnProperty.call(LINKS_KO, href)) el.setAttribute('href', LINKS_KO[href]);
       });
       if (scope.hasAttribute('aria-label')) scope.setAttribute('aria-label', t(scope.getAttribute('aria-label')));
+    });
+
+    // Machine-translation disclaimer, Korean listings only (the static pages carry it in their footer)
+    Array.prototype.forEach.call(document.querySelectorAll('[data-mtl-note]'), function(note) {
+      note.textContent = KO.js.mtlNote;
+      note.hidden = false;
     });
 
     // Labelled sections holding the file table: only their own label, never the rows

@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YuruMirror · Arch-based Linux mirrors in Seoul</title>
-<meta name="description" content="Fast, laid-back package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs. 4 Gbps from Seoul, South Korea.">
-<meta property="og:title" content="YuruMirror · Arch-based Linux mirrors in Seoul">
-<meta property="og:description" content="Fast, laid-back package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs. 4 Gbps from Seoul, South Korea.">
+<title>YuruMirror · Mostly Arch-based Linux mirrors in Seoul</title>
+<meta name="description" content="Mostly Arch-based package mirrors in Seoul, South Korea. Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs at 4 Gbps.">
+<meta property="og:title" content="YuruMirror · Mostly Arch-based Linux mirrors in Seoul">
+<meta property="og:description" content="Mostly Arch-based package mirrors in Seoul, South Korea. Arch Linux, Artix, CachyOS, EndeavourOS and Fyra Labs at 4 Gbps.">
 <meta property="og:image" content="https://mirror.funami.tech/assets/img/IMG_0010.webp">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
 
         <div class="relative hidden md:block" data-dropdown>
             <button type="button" class="nav-link" aria-expanded="false" aria-haspopup="true">
-                Distros
+                Mirrors
                 <svg class="size-3.5 transition-transform duration-200" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="dropdown-panel" hidden>
@@ -76,7 +76,7 @@
     </nav>
 
     <div id="mobile-menu" class="border-t border-line px-4 pb-4 pt-2 md:hidden" hidden>
-        <nav class="grid gap-0.5" aria-label="Mobile">
+        <nav class="grid gap-0.5" aria-label="Navigation">
             <a class="menu-item" href="/donate.html"><svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>Donate</a>
             <div class="my-1.5 border-t border-line"></div>
             <a class="menu-item" href="/arch/"><img src="/assets/img/archlinux.svg" alt="" class="size-4">Arch Linux</a>
@@ -120,12 +120,12 @@
                     </div>
                     <h1 class="mt-5 text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
                         The laid-back mirror for
-                        <span class="text-accent-strong">Arch-based</span> distros.
+                        mostly <span class="text-accent-strong">Arch-based</span> distros.
                     </h1>
                     <p class="mt-5 max-w-xl text-lg/relaxed">
                         Package mirrors for Arch Linux, Artix, CachyOS, EndeavourOS
-                        and Fyra Labs, served from Oracle Cloud in Seoul, synced as
-                        often as every five minutes.
+                        and Fyra Labs, on Oracle Cloud in Seoul. Arch resyncs every
+                        5 minutes, so the mirror is probably fresher than your install.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3">
                         <a href="#mirrors" class="btn-primary">
@@ -139,7 +139,7 @@
                     </div>
                     <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-4">
                         <div>
-                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Repositories</dt>
+                            <dt class="text-xs font-medium tracking-wider text-faint uppercase">Mirrors</dt>
                             <dd class="mt-1 text-2xl font-bold text-ink tabular-nums">9</dd>
                         </div>
                         <div>
@@ -158,11 +158,11 @@
         <!-- Mirrors -->
         <section id="mirrors" class="scroll-mt-20 border-t border-line bg-surface/50">
             <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-                <h2 class="section-title">Mirrored repositories</h2>
+                <h2 class="section-title">All mirrors</h2>
                 <p class="mt-2 max-w-2xl">
                     Point your package manager at
                     <code class="rounded bg-inset px-1.5 py-0.5 font-mono text-[13px] text-accent-strong">mirror.funami.tech</code>
-                    and enjoy. Directory listings are browsable for every repo.
+                    and enjoy. Directory listings are browsable for every mirror.
                 </p>
 
                 <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -299,8 +299,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">Oracle Cloud, Seoul</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Not a homelab in a closet: YuruMirror runs in Oracle Cloud's
-                            Seoul region, on datacenter-grade power, cooling and network.
+                            Proper datacenter in Seoul (so someone else worries about the power for once).
                         </p>
                     </div>
                     <div class="card p-6">
@@ -309,8 +308,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">4 Gbps uplink</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Oracle Cloud networking means your downloads are limited by
-                            your connection, not ours.
+                            Your connection is the bottleneck here, not the mirror.
                         </p>
                     </div>
                     <div class="card p-6">
@@ -319,8 +317,7 @@
                         </span>
                         <h3 class="mt-4 font-semibold text-ink">Always fresh</h3>
                         <p class="mt-2 text-sm/relaxed">
-                            Frequent synchronization: every 5 minutes for Arch and Fyra Labs,
-                            15 for Artix, 30 for CachyOS, hourly for EndeavourOS.
+                            Arch and Fyra Labs resync every 5 minutes (probably excessive, not sorry). Artix every 15, CachyOS every 30, EndeavourOS hourly.
                         </p>
                     </div>
                 </div>
@@ -334,8 +331,7 @@
                     <div class="max-w-md">
                         <h2 class="section-title">Special thanks</h2>
                         <p class="mt-2 text-sm/relaxed">
-                            YuruMirror is run by one undergraduate. Generous people help
-                            keep the disks spinning and the bandwidth flowing.
+                            They keep the mirror running. I owe them one.
                         </p>
                         <a href="/donate.html" class="btn-ghost mt-5">
                             <svg class="size-4 text-accent" aria-hidden="true"><use href="#i-heart"/></svg>
@@ -367,7 +363,7 @@
                     <span class="font-semibold tracking-tight text-ink">YuruMirror</span>
                 </a>
                 <p class="mt-3 text-sm leading-relaxed text-faint">
-                    Fast, laid-back package mirrors for Arch-based distros, served from Seoul with
+                    Fast, laid-back package mirrors for mostly Arch-based distros, served from Seoul with
                     <svg class="inline size-3.5 text-accent" aria-hidden="true"><use href="#i-heart"/></svg><span class="sr-only">love</span>.
                 </p>
                 <div class="mt-4 flex gap-1">
@@ -387,7 +383,7 @@
                         <li><a class="footer-link" href="/cachy/">CachyOS</a></li>
                         <li><a class="footer-link" href="/endeavouros/">EndeavourOS</a></li>
                         <li><a class="footer-link" href="/fyralabs/">Fyra Labs</a></li>
-                        <li><a class="footer-link" href="/#mirrors">All repositories →</a></li>
+                        <li><a class="footer-link" href="/#mirrors">All mirrors →</a></li>
                     </ul>
                 </div>
                 <div>
